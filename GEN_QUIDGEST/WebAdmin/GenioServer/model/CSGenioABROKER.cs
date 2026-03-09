@@ -94,6 +94,16 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "phone_number", FieldType.TEXT);
+			Qfield.FieldDescription = "PHONE_NUMBER";
+			Qfield.FieldSize =  50;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "PHONE_NUMBER54560";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -107,6 +117,8 @@ namespace CSGenio.business
 		{
 			// Daughters Relations
 			//------------------------------
+			info.ChildTable = new ChildRelation[1];
+			info.ChildTable[0]= new ChildRelation("property", new String[] {"brokers_fk"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------
@@ -159,7 +171,7 @@ namespace CSGenio.business
 			info.ShadowTabKeyName="";
 
 			info.PrimaryKeyName="codbroker";
-			info.HumanKeyName="";
+			info.HumanKeyName="name,email,".TrimEnd(',');
 			info.Alias="broker";
 			info.IsDomain = true;
 			info.PersistenceType = PersistenceType.Database;
@@ -295,6 +307,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldEmail, value); }
 		}
 
+		/// <summary>Field : "PHONE_NUMBER" Tipo: "C" Formula:  ""</summary>
+		public static FieldRef FldPhone_number { get { return m_fldPhone_number; } }
+		private static FieldRef m_fldPhone_number = new FieldRef("broker", "phone_number");
+
+		/// <summary>Field : "PHONE_NUMBER" Tipo: "C" Formula:  ""</summary>
+		public string ValPhone_number
+		{
+			get { return (string)returnValueField(FldPhone_number); }
+			set { insertNameValueField(FldPhone_number, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("broker", "zzstate");
@@ -392,7 +415,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX BROKER]/
 
  
-      
+       
 
 	}
 }

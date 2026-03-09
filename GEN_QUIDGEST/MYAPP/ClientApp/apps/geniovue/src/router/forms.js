@@ -11,7 +11,19 @@ export default function getFormsRoutes()
 			meta: {
 				routeType: 'form',
 				baseArea: 'BROKER',
-				humanKeyFields: [],
+				humanKeyFields: ['ValName', 'ValEmail'],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/:module/form/F_PROPERTY/:mode/:id?',
+			name: 'form-F_PROPERTY',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFProperty/QFormFProperty.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'PROPERTY',
+				humanKeyFields: ['ValTitle', 'ValPrice'],
 				isPopup: false
 			}
 		},

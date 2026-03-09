@@ -51,6 +51,9 @@
   <msg id="Async process attachment" code="ASYNC_PROCESS_ATTACH34417">
     <ENUS>Async process attachment</ENUS>
   </msg>
+  <msg id="Price" code="PRICE06900">
+    <ENUS>Price</ENUS>
+  </msg>
   <msg id="Result message" code="RESULT_MESSAGE40830">
     <ENUS>Result message</ENUS>
   </msg>
@@ -59,6 +62,9 @@
   </msg>
   <msg id="Password type" code="PASSWORD_TYPE03035">
     <ENUS>Password type</ENUS>
+  </msg>
+  <msg id="PHONE_NUMBER" code="PHONE_NUMBER54560">
+    <ENUS>PHONE_NUMBER</ENUS>
   </msg>
   <msg id="End time" code="END_TIME53495">
     <ENUS>End time</ENUS>
@@ -99,6 +105,9 @@
   <msg id="Email" code="EMAIL25170">
     <ENUS>Email</ENUS>
   </msg>
+  <msg id="Properties" code="PROPERTIES34868">
+    <ENUS>Properties</ENUS>
+  </msg>
   <msg id="Notification Messages" code="NOTIFICATION_MESSAGE60981">
     <ENUS>Notification Messages</ENUS>
   </msg>
@@ -107,6 +116,9 @@
   </msg>
   <msg id="Text after signature" code="TEXT_AFTER_SIGNATURE11837">
     <ENUS>Text after signature</ENUS>
+  </msg>
+  <msg id="title" code="TITLE11628">
+    <ENUS>title</ENUS>
   </msg>
   <msg id="Roles" code="ROLES61449">
     <ENUS>Roles</ENUS>
@@ -234,6 +246,9 @@
   <msg id="Sucesso" code="SUCESSO65230">
     <ENUS>Sucesso</ENUS>
   </msg>
+  <msg id="Property" code="PROPERTY43977">
+    <ENUS>Property</ENUS>
+  </msg>
   <msg id="Username" code="USERNAME51409">
     <ENUS>Username</ENUS>
   </msg>
@@ -281,6 +296,9 @@
   </msg>
   <msg id="Password" code="PASSWORD09467">
     <ENUS>Password</ENUS>
+  </msg>
+  <msg id="brokers Name" code="BROKERS_NAME02545">
+    <ENUS>brokers Name</ENUS>
   </msg>
   <msg id="Notification Email Signatures" code="NOTIFICATION_EMAIL_S37352">
     <ENUS>Notification Email Signatures</ENUS>
@@ -7340,9 +7358,6 @@
   </msg>
   <msg id="More Properties" code="MORE_PROPERTIES36834">
     <ENUS>More Properties</ENUS>
-  </msg>
-  <msg id="Property" code="PROPERTY43977">
-    <ENUS>Property</ENUS>
   </msg>
   <msg id="Key" code="KEY01046">
     <ENUS>Key</ENUS>

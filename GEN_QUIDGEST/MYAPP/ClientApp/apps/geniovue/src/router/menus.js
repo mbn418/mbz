@@ -14,7 +14,21 @@ export default function getMenusRoutes()
 				order: '11',
 				baseArea: 'BROKER',
 				hasInitialPHE: false,
-				humanKeyFields: [],
+				humanKeyFields: ['ValName', 'ValEmail'],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/TRA/menu/TRA_21',
+			name: 'menu-TRA_21',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_21/QMenuTra21.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'TRA',
+				order: '21',
+				baseArea: 'PROPERTY',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValTitle', 'ValPrice'],
 				isPopup: false
 			}
 		},

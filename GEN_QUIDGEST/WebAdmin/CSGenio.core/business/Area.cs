@@ -38,6 +38,8 @@ namespace CSGenio.business
         private static AreaRef m_AreaS_APR = new AreaRef("TRA", "asyncprocess", "s_apr");
         public static AreaRef AreaS_NM { get { return m_AreaS_NM; } }
         private static AreaRef m_AreaS_NM = new AreaRef("TRA", "notificationmessage", "s_nm");
+        public static AreaRef AreaPROPERTY { get { return m_AreaPROPERTY; } }
+        private static AreaRef m_AreaPROPERTY = new AreaRef("TRA", "traproperty", "property");
         //areas hardcoded
         public static AreaRef AreaDELEGA { get { return m_AreaDELEGA; } }
         private static AreaRef m_AreaDELEGA = new AreaRef("TRAdelega", "delega");
@@ -78,6 +80,7 @@ namespace CSGenio.business
             "psw",
             "s_apr",
             "s_nm",
+            "property",
         });
 
         /// <summary>
