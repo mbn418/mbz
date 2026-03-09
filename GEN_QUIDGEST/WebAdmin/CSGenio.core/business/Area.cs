@@ -30,6 +30,8 @@ namespace CSGenio.business
         private static AreaRef m_AreaS_UA = new AreaRef("TRA", "userauthorization", "s_ua");
         public static AreaRef AreaMEM { get { return m_AreaMEM; } }
         private static AreaRef m_AreaMEM = new AreaRef("TRA", "tramem", "mem");
+        public static AreaRef AreaBROKER { get { return m_AreaBROKER; } }
+        private static AreaRef m_AreaBROKER = new AreaRef("TRA", "trabroker", "broker");
         public static AreaRef AreaPSW { get { return m_AreaPSW; } }
         private static AreaRef m_AreaPSW = new AreaRef("TRA", "userlogin", "psw");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
@@ -72,6 +74,7 @@ namespace CSGenio.business
             "s_arg",
             "s_ua",
             "mem",
+            "broker",
             "psw",
             "s_apr",
             "s_nm",

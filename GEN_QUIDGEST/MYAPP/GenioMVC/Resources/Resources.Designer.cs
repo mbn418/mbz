@@ -108,6 +108,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Birthday"
+		/// </summary>
+		public static string BIRTHDAY30236 {
+			get {
+				return ResourceManager.GetString("BIRTHDAY30236", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "My application"
 		/// </summary>
 		public static string MY_APPLICATION56216 {
@@ -297,6 +306,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Cancelar"
+		/// </summary>
+		public static string CANCELAR49513 {
+			get {
+				return ResourceManager.GetString("CANCELAR49513", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Last update"
 		/// </summary>
 		public static string LAST_UPDATE11909 {
@@ -383,6 +401,15 @@ namespace GenioMVC.Resources
 		public static string DOCUMENT00695 {
 			get {
 				return ResourceManager.GetString("DOCUMENT00695", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "photo"
+		/// </summary>
+		public static string PHOTO38852 {
+			get {
+				return ResourceManager.GetString("PHOTO38852", resourceCulture);
 			}
 		}
 
@@ -500,6 +527,15 @@ namespace GenioMVC.Resources
 		public static string HORARIO56549 {
 			get {
 				return ResourceManager.GetString("HORARIO56549", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "broker"
+		/// </summary>
+		public static string BROKER37082 {
+			get {
+				return ResourceManager.GetString("BROKER37082", resourceCulture);
 			}
 		}
 
@@ -972,6 +1008,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Gravar"
+		/// </summary>
+		public static string GRAVAR45301 {
+			get {
+				return ResourceManager.GetString("GRAVAR45301", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Em fila de espera"
 		/// </summary>
 		public static string EM_FILA_DE_ESPERA21822 {
@@ -1125,15 +1170,6 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
-		///   Looks up a localized string similar to "Cancelar"
-		/// </summary>
-		public static string CANCELAR49513 {
-			get {
-				return ResourceManager.GetString("CANCELAR49513", resourceCulture);
-			}
-		}
-
-		/// <summary>
 		///   Looks up a localized string similar to "consulta"
 		/// </summary>
 		public static string CONSULTA23186 {
@@ -1256,15 +1292,6 @@ namespace GenioMVC.Resources
 		public static string FORM54242 {
 			get {
 				return ResourceManager.GetString("FORM54242", resourceCulture);
-			}
-		}
-
-		/// <summary>
-		///   Looks up a localized string similar to "Gravar"
-		/// </summary>
-		public static string GRAVAR45301 {
-			get {
-				return ResourceManager.GetString("GRAVAR45301", resourceCulture);
 			}
 		}
 
