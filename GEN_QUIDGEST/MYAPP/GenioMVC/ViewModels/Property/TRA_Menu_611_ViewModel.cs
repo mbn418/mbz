@@ -17,13 +17,13 @@ using Quidgest.Persistence.GenericQuery;
 
 namespace GenioMVC.ViewModels.Property
 {
-	public class TRA_Menu_711_ViewModel : MenuListViewModel<Models.Property>
+	public class TRA_Menu_611_ViewModel : MenuListViewModel<Models.Property>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("table")]
-		public TablePartial<TRA_Menu_711_RowViewModel> Menu { get; set; }
+		public TablePartial<TRA_Menu_611_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
@@ -84,7 +84,7 @@ namespace GenioMVC.ViewModels.Property
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL TRA LIST_LIMITS 711]/
+// USE /[MANUAL TRA LIST_LIMITS 611]/
 
 			return crs;
 		}
@@ -95,7 +95,7 @@ namespace GenioMVC.ViewModels.Property
 			var areaBase = CSGenio.business.Area.createArea("property", user, "TRA");
 
 			//gets eph conditions to be applied in listing
-			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML711");
+			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML611");
 			conditions.Equal(CSGenioAproperty.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
@@ -124,23 +124,23 @@ namespace GenioMVC.ViewModels.Property
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public TRA_Menu_711_ViewModel() : base(null!) { }
+		public TRA_Menu_611_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="TRA_Menu_711_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="TRA_Menu_611_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public TRA_Menu_711_ViewModel(UserContext userContext) : base(userContext)
+		public TRA_Menu_611_ViewModel(UserContext userContext) : base(userContext)
 		{
-			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
+			this.RoleToShow = CSGenio.framework.Role.ADMINISTRATION;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="TRA_Menu_711_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="TRA_Menu_611_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public TRA_Menu_711_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public TRA_Menu_611_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -220,7 +220,7 @@ namespace GenioMVC.ViewModels.Property
 
 			crs ??= CriteriaSet.And();
 
-			Menu ??= new TablePartial<TRA_Menu_711_RowViewModel>();
+			Menu ??= new TablePartial<TRA_Menu_611_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -246,7 +246,7 @@ namespace GenioMVC.ViewModels.Property
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Property.AddEPH<CSGenioAproperty>(ref u, crs, "ML711");
+				crs = Models.Property.AddEPH<CSGenioAproperty>(ref u, crs, "ML611");
 
 				// Export only records with ZZState == 0
 				crs.Equal(CSGenioAproperty.FldZzstate, 0);
@@ -264,7 +264,7 @@ namespace GenioMVC.ViewModels.Property
 				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_property");
 				Navigation.DestroyEntry("QMVC_POS_RECORD_property");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Property.AddEPH<CSGenioAproperty>(ref u, null, "ML711"));
+					crs.Equals(Models.Property.AddEPH<CSGenioAproperty>(ref u, null, "ML611"));
 			}
 
 			return crs;
@@ -339,9 +339,9 @@ namespace GenioMVC.ViewModels.Property
 		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAproperty> Qlisting, ref CriteriaSet conditions)
 		{
 			User u = m_userContext.User;
-			Menu = new TablePartial<TRA_Menu_711_RowViewModel>();
+			Menu = new TablePartial<TRA_Menu_611_RowViewModel>();
 
-			CriteriaSet tra_menu_711Conds = CriteriaSet.And();
+			CriteriaSet tra_menu_611Conds = CriteriaSet.And();
 			bool tableReload = true;
 
 			//FOR: MENU LIST SORTING
@@ -390,7 +390,7 @@ namespace GenioMVC.ViewModels.Property
 				Limit limit = new Limit();
 				limit.TipoLimite = LimitType.EPH;
 				CSGenioAproperty model_limit_area = new CSGenioAproperty(m_userContext.User);
-				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML711");
+				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML611");
 				if (area_EPH_limits.Count > 0)
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
@@ -418,11 +418,11 @@ namespace GenioMVC.ViewModels.Property
 			if (conditions == null)
 				conditions = CriteriaSet.And();
 
-			conditions.SubSets.Add(tra_menu_711Conds);
-			tra_menu_711Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+			conditions.SubSets.Add(tra_menu_611Conds);
+			tra_menu_611Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 			tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL TRA OVERRQ 711]/
+// USE /[MANUAL TRA OVERRQ 611]/
 
 			bool distinct = false;
 
@@ -434,16 +434,16 @@ namespace GenioMVC.ViewModels.Property
 				var exportColumns = GetExportColumns(tableConfig.ColumnConfigurations);
 				var exportFieldRefs = exportColumns.Select(eCol => eCol.Field).Where(fldRef => fldRef != null).ToArray();
 
-				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAproperty>(m_userContext, false, ref tra_menu_711Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML711", true, firstVisibleColumn: firstVisibleColumn);
+				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAproperty>(m_userContext, false, ref tra_menu_611Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML611", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL TRA OVERRQLSTEXP 711]/
+// USE /[MANUAL TRA OVERRQLSTEXP 611]/
 
 				return;
 			}
 
 			if (tableReload)
 			{
-// USE /[MANUAL TRA OVERRQLIST 711]/
+// USE /[MANUAL TRA OVERRQLIST 611]/
 
 				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_property");
 				Navigation.DestroyEntry("QMVC_POS_RECORD_property");
@@ -451,12 +451,12 @@ namespace GenioMVC.ViewModels.Property
 
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 				{
-					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAproperty.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_711Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAproperty.GetInformation(), QMVC_POS_RECORD, sorts, tra_menu_611Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 					if (m_iCurPag != -1)
 						pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 				}
 
-				ListingMVC<CSGenioAproperty> listing = Models.ModelBase.Where<CSGenioAproperty>(m_userContext, distinct, tra_menu_711Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML711", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+				ListingMVC<CSGenioAproperty> listing = Models.ModelBase.Where<CSGenioAproperty>(m_userContext, distinct, tra_menu_611Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML611", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 				if (listing.CurrentPage > 0)
 					pageNumber = listing.CurrentPage;
@@ -468,15 +468,15 @@ namespace GenioMVC.ViewModels.Property
 				//Set document field values to objects
 				SetDocumentFields(listing);
 
-				Menu.Elements = MapTRA_Menu_711(listing);
+				Menu.Elements = MapTRA_Menu_611(listing);
 
-				Menu.Identifier = "ML711";
+				Menu.Identifier = "ML611";
 				Menu.Slots = new Dictionary<string, List<object>>();
 
 				// Last updated by [CJP] at [2015.02.03]
 				// Adds the identifier to each element
 				foreach (var element in Menu.Elements)
-					element.Identifier = "ML711";
+					element.Identifier = "ML611";
 
 				Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -495,9 +495,9 @@ namespace GenioMVC.ViewModels.Property
 			LoadUserTableConfigNameProperties();
 		}
 
-		private List<TRA_Menu_711_RowViewModel> MapTRA_Menu_711(ListingMVC<CSGenioAproperty> Qlisting)
+		private List<TRA_Menu_611_RowViewModel> MapTRA_Menu_611(ListingMVC<CSGenioAproperty> Qlisting)
 		{
-			List<TRA_Menu_711_RowViewModel> Elements = [];
+			List<TRA_Menu_611_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -506,7 +506,7 @@ namespace GenioMVC.ViewModels.Property
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapTRA_Menu_711(row));
+					Elements.Add(MapTRA_Menu_611(row));
 					i++;
 				}
 			}
@@ -516,12 +516,12 @@ namespace GenioMVC.ViewModels.Property
 
 		/// <summary>
 		/// Maps a single CSGenioAproperty row
-		/// to a TRA_Menu_711_RowViewModel object.
+		/// to a TRA_Menu_611_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private TRA_Menu_711_RowViewModel MapTRA_Menu_711(CSGenioAproperty row)
+		private TRA_Menu_611_RowViewModel MapTRA_Menu_611(CSGenioAproperty row)
 		{
-			var model = new TRA_Menu_711_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new TRA_Menu_611_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -581,7 +581,7 @@ namespace GenioMVC.ViewModels.Property
 
 		#region Custom code
 
-// USE /[MANUAL TRA VIEWMODEL_CUSTOM TRA_MENU_711]/
+// USE /[MANUAL TRA VIEWMODEL_CUSTOM TRA_MENU_611]/
 
 		#endregion
 

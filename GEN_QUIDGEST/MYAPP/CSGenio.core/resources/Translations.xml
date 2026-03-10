@@ -438,6 +438,9 @@
   <msg id="Created on" code="CREATED_ON00051">
     <ENUS>Created on</ENUS>
   </msg>
+  <msg id="officer" code="OFFICER63190">
+    <ENUS>officer</ENUS>
+  </msg>
   <msg id="More" code="MORE38452">
     <ENUS>More</ENUS>
   </msg>
