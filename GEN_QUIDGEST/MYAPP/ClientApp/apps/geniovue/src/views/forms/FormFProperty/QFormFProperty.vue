@@ -319,6 +319,36 @@
 						</base-input-structure>
 					</q-col>
 				</q-row>
+				<q-row v-if="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.isVisible">
+					<q-col v-if="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.isVisible">
+						<q-table
+							v-if="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.isVisible"
+							v-bind="controls.F_PROPERTY__PSEUD__PROPERTY_GRID"
+							v-on="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.handlers">
+							<template #header>
+								<q-table-config
+									:table-ctrl="controls.F_PROPERTY__PSEUD__PROPERTY_GRID"
+									v-on="controls.F_PROPERTY__PSEUD__PROPERTY_GRID.handlers" />
+							</template>
+							<!-- USE /[MANUAL TRA CUSTOM_TABLE F_PROPERTY__PSEUD__PROPERTY_GRID]/ -->
+						</q-table>
+					</q-col>
+				</q-row>
+				<q-row v-if="controls.F_PROPERTY__PSEUD__CONTACT_GRID.isVisible">
+					<q-col v-if="controls.F_PROPERTY__PSEUD__CONTACT_GRID.isVisible">
+						<q-table
+							v-if="controls.F_PROPERTY__PSEUD__CONTACT_GRID.isVisible"
+							v-bind="controls.F_PROPERTY__PSEUD__CONTACT_GRID"
+							v-on="controls.F_PROPERTY__PSEUD__CONTACT_GRID.handlers">
+							<template #header>
+								<q-table-config
+									:table-ctrl="controls.F_PROPERTY__PSEUD__CONTACT_GRID"
+									v-on="controls.F_PROPERTY__PSEUD__CONTACT_GRID.handlers" />
+							</template>
+							<!-- USE /[MANUAL TRA CUSTOM_TABLE F_PROPERTY__PSEUD__CONTACT_GRID]/ -->
+						</q-table>
+					</q-col>
+				</q-row>
 			</template>
 		</q-container>
 	</teleport>
@@ -876,7 +906,7 @@
 					F_PROPERTY__PSEUD__PROPERTY_GRID: new fieldControlClass.TableListControl({
 						id: 'F_PROPERTY__PSEUD__PROPERTY_GRID',
 						name: 'PROPERTY_GRID',
-						size: '',
+						size: 'block',
 						label: computed(() => this.Resources.PROPERTIES34868),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -959,7 +989,7 @@
 					F_PROPERTY__PSEUD__CONTACT_GRID: new fieldControlClass.TableListControl({
 						id: 'F_PROPERTY__PSEUD__CONTACT_GRID',
 						name: 'CONTACT_GRID',
-						size: '',
+						size: 'block',
 						label: computed(() => this.Resources.CONTACT05134),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
