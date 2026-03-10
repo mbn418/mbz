@@ -8,6 +8,11 @@ namespace quidgest.uitests.pages.forms;
 public class F_propertyForm : Form
 {
 	/// <summary>
+	/// Main info
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp02 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__NEWGRP02-container");
+
+	/// <summary>
 	/// photo
 	/// </summary>
 	public BaseInputControl PropertyPhoto => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTY__PHOTO", "#F_PROPERTY__PROPERTY__PHOTO");
@@ -27,6 +32,11 @@ public class F_propertyForm : Form
 	/// </summary>
 	public LookupControl BrokerName => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__BROKER__NAME");
 	public SeeMorePage BrokerNameSeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__BROKER__NAME");
+
+	/// <summary>
+	/// DETAILS
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__NEWGRP01-container");
 
 	/// <summary>
 	/// BATHROOM_NUMBER

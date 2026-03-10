@@ -338,7 +338,7 @@
 							formsDefinition: {
 								'CONTACT': {
 									fnKeySelector: (row) => row.Fields.ValCodcontact,
-									isPopup: false
+									isPopup: true
 								},
 							},
 							defaultSearchColumnName: '',

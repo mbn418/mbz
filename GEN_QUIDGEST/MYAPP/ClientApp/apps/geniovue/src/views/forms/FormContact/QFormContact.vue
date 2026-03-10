@@ -333,7 +333,7 @@
 				},
 
 				formInfo: {
-					type: 'normal',
+					type: 'popup',
 					name: 'CONTACT',
 					route: 'form-CONTACT',
 					area: 'CONTACT',

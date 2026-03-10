@@ -828,6 +828,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Main info"
+		/// </summary>
+		public static string MAIN_INFO53406 {
+			get {
+				return ResourceManager.GetString("MAIN_INFO53406", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "EMAIL"
 		/// </summary>
 		public static string EMAIL45345 {
@@ -851,6 +860,15 @@ namespace GenioMVC.Resources
 		public static string PROCESS_MODE22419 {
 			get {
 				return ResourceManager.GetString("PROCESS_MODE22419", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "DETAILS"
+		/// </summary>
+		public static string DETAILS46953 {
+			get {
+				return ResourceManager.GetString("DETAILS46953", resourceCulture);
 			}
 		}
 

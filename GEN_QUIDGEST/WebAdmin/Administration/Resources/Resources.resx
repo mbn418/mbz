@@ -372,6 +372,9 @@
   <data name="LEVEL06184" xml:space="preserve">
     <value>Level</value>
   </data>
+  <data name="MAIN_INFO53406" xml:space="preserve">
+    <value>Main info</value>
+  </data>
   <data name="EMAIL45345" xml:space="preserve">
     <value>EMAIL</value>
   </data>
@@ -380,6 +383,9 @@
   </data>
   <data name="PROCESS_MODE22419" xml:space="preserve">
     <value>Process mode</value>
+  </data>
+  <data name="DETAILS46953" xml:space="preserve">
+    <value>DETAILS</value>
   </data>
   <data name="COUNTRY64133" xml:space="preserve">
     <value>Country</value>

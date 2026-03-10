@@ -24,7 +24,7 @@ export default function getFormsRoutes()
 				routeType: 'form',
 				baseArea: 'CONTACT',
 				humanKeyFields: [],
-				isPopup: false
+				isPopup: true
 			}
 		},
 		{

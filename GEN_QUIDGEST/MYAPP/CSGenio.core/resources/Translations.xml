@@ -255,6 +255,9 @@
   <msg id="Level" code="LEVEL06184">
     <ENUS>Level</ENUS>
   </msg>
+  <msg id="Main info" code="MAIN_INFO53406">
+    <ENUS>Main info</ENUS>
+  </msg>
   <msg id="EMAIL" code="EMAIL45345">
     <ENUS>EMAIL</ENUS>
   </msg>
@@ -263,6 +266,9 @@
   </msg>
   <msg id="Process mode" code="PROCESS_MODE22419">
     <ENUS>Process mode</ENUS>
+  </msg>
+  <msg id="DETAILS" code="DETAILS46953">
+    <ENUS>DETAILS</ENUS>
   </msg>
   <msg id="Country" code="COUNTRY64133">
     <ENUS>Country</ENUS>
