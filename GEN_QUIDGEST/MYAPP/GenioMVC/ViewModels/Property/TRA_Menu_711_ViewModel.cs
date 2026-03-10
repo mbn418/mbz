@@ -184,6 +184,27 @@ namespace GenioMVC.ViewModels.Property
 			tableConfig.RowsPerPage = rowsPerPage;
 		}
 
+		/// <summary>
+		/// Loads the viewmodel to export a template.
+		/// </summary>
+		/// <param name="columns">The columns.</param>
+		public void LoadToExportTemplate(out List<Exports.QColumn> columns)
+		{
+			columns = new List<Exports.QColumn>()
+			{
+				new Exports.QColumn(CSGenioAproperty.FldPhoto, FieldType.IMAGE, Resources.Resources.PHOTO38852, 3, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldTitle, FieldType.TEXT, Resources.Resources.TITLE11628, 80, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldPrice, FieldType.CURRENCY, Resources.Resources.PRICE06900, 14, 2, true),
+				new Exports.QColumn(CSGenioAproperty.FldBathroom_number, FieldType.NUMERIC, Resources.Resources.BATHROOM_NUMBER01832, 2, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldDate, FieldType.DATE, Resources.Resources.DAT56009, 8, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldSize, FieldType.NUMERIC, String.Empty, 5, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldBuildingtype, FieldType.ARRAY_TEXT, Resources.Resources.BUILDINGTYPE40152, 1, 0, true, "building_type"),
+				new Exports.QColumn(CSGenioAproperty.FldTopoogy, FieldType.ARRAY_NUMERIC, Resources.Resources.TOPOOGY11786, 1, 0, true, "Typology"),
+				new Exports.QColumn(CSGenioAcity.FldCity, FieldType.TEXT, Resources.Resources.CITY35974, 30, 0, true),
+				new Exports.QColumn(CSGenioAbroker.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
+			};
+		}
+
 		/// <inheritdoc/>
 		public override CriteriaSet BuildCriteriaSet(NameValueCollection requestValues, out bool tableReload, CriteriaSet crs = null, bool isToExport = false)
 		{

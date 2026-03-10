@@ -294,6 +294,8 @@
 							},
 							formsDefinition: {
 							},
+							allowFileExport: true,
+							allowFileImport: true,
 							defaultSearchColumnName: 'ValTitle',
 							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
