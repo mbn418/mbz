@@ -97,6 +97,48 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "bathroom_number", FieldType.NUMERIC);
+			Qfield.FieldDescription = "BATHROOM_NUMBER";
+			Qfield.FieldSize =  2;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 2;
+			Qfield.CavDesignation = "BATHROOM_NUMBER01832";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "date", FieldType.DATE);
+			Qfield.FieldDescription = "dat";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "DAT56009";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "size", FieldType.NUMERIC);
+			Qfield.FieldDescription = "";
+			Qfield.FieldSize =  5;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 5;
+			Qfield.CavDesignation = "";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "city_fk", FieldType.KEY_INT);
+			Qfield.FieldDescription = "CITY_FK";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "CITY_FK13761";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -110,11 +152,15 @@ namespace CSGenio.business
 		{
 			// Daughters Relations
 			//------------------------------
+			info.ChildTable = new ChildRelation[2];
+			info.ChildTable[0]= new ChildRelation("photo_album", new String[] {"codpropetry"}, DeleteProc.NA);
+			info.ChildTable[1]= new ChildRelation("contact", new String[] {"codproperty"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
 			info.ParentTables.Add("broker", new Relation("TRA", "traproperty", "property", "codproperty", "brokers_fk", "TRA", "trabroker", "broker", "codbroker", "codbroker"));
+			info.ParentTables.Add("city", new Relation("TRA", "traproperty", "property", "codproperty", "city_fk", "TRA", "tracity", "city", "codcity", "codcity"));
 		}
 
 		/// <summary>
@@ -124,8 +170,10 @@ namespace CSGenio.business
 		{
 			// Pathways
 			//------------------------------
-			info.Pathways = new Dictionary<string, string>(1);
+			info.Pathways = new Dictionary<string, string>(3);
 			info.Pathways.Add("broker","broker");
+			info.Pathways.Add("city","city");
+			info.Pathways.Add("country","city");
 		}
 
 		/// <summary>
@@ -300,6 +348,50 @@ namespace CSGenio.business
 			set { insertNameValueField(FldBrokers_fk, value); }
 		}
 
+		/// <summary>Field : "BATHROOM_NUMBER" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldBathroom_number { get { return m_fldBathroom_number; } }
+		private static FieldRef m_fldBathroom_number = new FieldRef("property", "bathroom_number");
+
+		/// <summary>Field : "BATHROOM_NUMBER" Tipo: "N" Formula:  ""</summary>
+		public decimal ValBathroom_number
+		{
+			get { return (decimal)returnValueField(FldBathroom_number); }
+			set { insertNameValueField(FldBathroom_number, value); }
+		}
+
+		/// <summary>Field : "dat" Tipo: "D" Formula:  ""</summary>
+		public static FieldRef FldDate { get { return m_fldDate; } }
+		private static FieldRef m_fldDate = new FieldRef("property", "date");
+
+		/// <summary>Field : "dat" Tipo: "D" Formula:  ""</summary>
+		public DateTime ValDate
+		{
+			get { return (DateTime)returnValueField(FldDate); }
+			set { insertNameValueField(FldDate, value); }
+		}
+
+		/// <summary>Field : "" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldSize { get { return m_fldSize; } }
+		private static FieldRef m_fldSize = new FieldRef("property", "size");
+
+		/// <summary>Field : "" Tipo: "N" Formula:  ""</summary>
+		public decimal ValSize
+		{
+			get { return (decimal)returnValueField(FldSize); }
+			set { insertNameValueField(FldSize, value); }
+		}
+
+		/// <summary>Field : "CITY_FK" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldCity_fk { get { return m_fldCity_fk; } }
+		private static FieldRef m_fldCity_fk = new FieldRef("property", "city_fk");
+
+		/// <summary>Field : "CITY_FK" Tipo: "CE" Formula:  ""</summary>
+		public string ValCity_fk
+		{
+			get { return (string)returnValueField(FldCity_fk); }
+			set { insertNameValueField(FldCity_fk, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("property", "zzstate");
@@ -397,7 +489,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX PROPERTY]/
 
  
-      
+          
 
 	}
 }

@@ -531,7 +531,7 @@ namespace GenioMVC.ViewModels.Property
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Property", "Property.ValCodproperty", "Property.ValZzstate", "Property.ValTitle", "Broker", "Broker.ValName", "Property.ValPhoto", "Property.ValPrice", "Property.ValBrokers_fk"
+			"Property", "Property.ValCodproperty", "Property.ValZzstate", "Property.ValTitle", "Broker", "Broker.ValName", "Property.ValPhoto", "Property.ValPrice", "Property.ValBrokers_fk", "Property.ValCity_fk"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

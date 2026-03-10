@@ -153,7 +153,7 @@
 						</base-input-structure>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.F_PROPERTY__BROKER__NAME.isVisible">
+				<q-row v-if="controls.F_PROPERTY__BROKER__NAME.isVisible || controls.F_PROPERTY__PROPERTY__BATHROOM_NUMBER.isVisible || controls.F_PROPERTY__PROPERTY__DATE.isVisible || controls.F_PROPERTY__PROPERTY__SIZE.isVisible || controls.F_PROPERTY__CITY__CITY.isVisible">
 					<q-col
 						v-if="controls.F_PROPERTY__BROKER__NAME.isVisible"
 						cols="auto">
@@ -173,6 +173,80 @@
 								v-if="controls.F_PROPERTY__BROKER__NAME.seeMoreIsVisible"
 								v-bind="controls.F_PROPERTY__BROKER__NAME.seeMoreParams"
 								v-on="controls.F_PROPERTY__BROKER__NAME.handlers" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_PROPERTY__PROPERTY__BATHROOM_NUMBER.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__PROPERTY__BATHROOM_NUMBER.isVisible"
+							class="i-text"
+							v-bind="controls.F_PROPERTY__PROPERTY__BATHROOM_NUMBER"
+							v-on="controls.F_PROPERTY__PROPERTY__BATHROOM_NUMBER.handlers"
+							:loading="controls.F_PROPERTY__PROPERTY__BATHROOM_NUMBER.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.F_PROPERTY__PROPERTY__BATHROOM_NUMBER.isVisible"
+								v-bind="controls.F_PROPERTY__PROPERTY__BATHROOM_NUMBER.props"
+								@update:model-value="model.ValBathroom_number.fnUpdateValue" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_PROPERTY__PROPERTY__DATE.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__PROPERTY__DATE.isVisible"
+							class="i-text"
+							v-bind="controls.F_PROPERTY__PROPERTY__DATE"
+							v-on="controls.F_PROPERTY__PROPERTY__DATE.handlers"
+							:loading="controls.F_PROPERTY__PROPERTY__DATE.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-date-time-picker
+								v-if="controls.F_PROPERTY__PROPERTY__DATE.isVisible"
+								v-bind="controls.F_PROPERTY__PROPERTY__DATE.props"
+								:model-value="model.ValDate.value"
+								@reset-icon-click="model.ValDate.fnUpdateValue(model.ValDate.originalValue ?? new Date())"
+								@update:model-value="model.ValDate.fnUpdateValue($event ?? '')" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_PROPERTY__PROPERTY__SIZE.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__PROPERTY__SIZE.isVisible"
+							class="i-text"
+							v-bind="controls.F_PROPERTY__PROPERTY__SIZE"
+							v-on="controls.F_PROPERTY__PROPERTY__SIZE.handlers"
+							:loading="controls.F_PROPERTY__PROPERTY__SIZE.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.F_PROPERTY__PROPERTY__SIZE.isVisible"
+								v-bind="controls.F_PROPERTY__PROPERTY__SIZE.props"
+								@update:model-value="model.ValSize.fnUpdateValue" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_PROPERTY__CITY__CITY.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__CITY__CITY.isVisible"
+							class="i-text"
+							v-bind="controls.F_PROPERTY__CITY__CITY"
+							v-on="controls.F_PROPERTY__CITY__CITY.handlers"
+							:loading="controls.F_PROPERTY__CITY__CITY.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-lookup
+								v-if="controls.F_PROPERTY__CITY__CITY.isVisible"
+								v-bind="controls.F_PROPERTY__CITY__CITY.props"
+								v-on="controls.F_PROPERTY__CITY__CITY.handlers" />
+							<q-see-more-f-property-city-city
+								v-if="controls.F_PROPERTY__CITY__CITY.seeMoreIsVisible"
+								v-bind="controls.F_PROPERTY__CITY__CITY.seeMoreParams"
+								v-on="controls.F_PROPERTY__CITY__CITY.handlers" />
 						</base-input-structure>
 					</q-col>
 				</q-row>
@@ -248,6 +322,7 @@
 
 		components: {
 			QSeeMoreFPropertyBrokerName: defineAsyncComponent(() => import('@/views/forms/FormFProperty/dbedits/FPropertyBrokerNameSeeMore.vue')),
+			QSeeMoreFPropertyCityCity: defineAsyncComponent(() => import('@/views/forms/FormFProperty/dbedits/FPropertyCityCitySeeMore.vue')),
 		},
 
 		mixins: [
@@ -533,7 +608,7 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						height: 50,
-						width: 100,
+						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO38852)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
@@ -596,6 +671,75 @@
 						controlLimits: [
 						],
 					}, this),
+					F_PROPERTY__PROPERTY__BATHROOM_NUMBER: new fieldControlClass.NumberControl({
+						modelField: 'ValBathroom_number',
+						valueChangeEvent: 'fieldChange:property.bathroom_number',
+						id: 'F_PROPERTY__PROPERTY__BATHROOM_NUMBER',
+						name: 'BATHROOM_NUMBER',
+						size: 'medium',
+						label: computed(() => this.Resources.BATHROOM_NUMBER01832),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxIntegers: 2,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTY__DATE: new fieldControlClass.DateControl({
+						modelField: 'ValDate',
+						valueChangeEvent: 'fieldChange:property.date',
+						id: 'F_PROPERTY__PROPERTY__DATE',
+						name: 'DATE',
+						size: 'small',
+						label: computed(() => this.Resources.DAT56009),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTY__SIZE: new fieldControlClass.NumberControl({
+						modelField: 'ValSize',
+						valueChangeEvent: 'fieldChange:property.size',
+						id: 'F_PROPERTY__PROPERTY__SIZE',
+						name: 'SIZE',
+						size: 'mini',
+						label: '',
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxIntegers: 5,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__CITY__CITY: new fieldControlClass.LookupControl({
+						modelField: 'TableCityCity',
+						valueChangeEvent: 'fieldChange:city.city',
+						id: 'F_PROPERTY__CITY__CITY',
+						name: 'CITY',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.CITY35974),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValCity_fk',
+							dependencyEvent: 'fieldChange:property.city_fk'
+						},
+						dependentFields: () => ({
+							set 'city.codcity'(value) { vm.model.ValCity_fk.updateValue(value) },
+							set 'city.city'(value) { vm.model.TableCityCity.updateValue(value) },
+						}),
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -622,13 +766,25 @@
 						get ValName() { return vm.model.TableBrokerName.value },
 						set ValName(value) { vm.model.TableBrokerName.updateValue(value) },
 					},
+					City: {
+						get ValCity() { return vm.model.TableCityCity.value },
+						set ValCity(value) { vm.model.TableCityCity.updateValue(value) },
+					},
 					Property: {
+						get ValBathroom_number() { return vm.model.ValBathroom_number.value },
+						set ValBathroom_number(value) { vm.model.ValBathroom_number.updateValue(value) },
 						get ValBrokers_fk() { return vm.model.ValBrokers_fk.value },
 						set ValBrokers_fk(value) { vm.model.ValBrokers_fk.updateValue(value) },
+						get ValCity_fk() { return vm.model.ValCity_fk.value },
+						set ValCity_fk(value) { vm.model.ValCity_fk.updateValue(value) },
+						get ValDate() { return vm.model.ValDate.value },
+						set ValDate(value) { vm.model.ValDate.updateValue(value) },
 						get ValPhoto() { return vm.model.ValPhoto.value },
 						set ValPhoto(value) { vm.model.ValPhoto.updateValue(value) },
 						get ValPrice() { return vm.model.ValPrice.value },
 						set ValPrice(value) { vm.model.ValPrice.updateValue(value) },
+						get ValSize() { return vm.model.ValSize.value },
+						set ValSize(value) { vm.model.ValSize.updateValue(value) },
 						get ValTitle() { return vm.model.ValTitle.value },
 						set ValTitle(value) { vm.model.ValTitle.updateValue(value) },
 					},
@@ -637,6 +793,8 @@
 						get property() { return vm.model.ValCodproperty },
 						/** The foreign key to the BROKER table */
 						get broker() { return vm.model.ValBrokers_fk },
+						/** The foreign key to the CITY table */
+						get city() { return vm.model.ValCity_fk },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

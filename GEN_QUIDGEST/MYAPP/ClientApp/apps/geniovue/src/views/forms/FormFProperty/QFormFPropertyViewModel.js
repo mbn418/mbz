@@ -64,6 +64,16 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValBrokers_fk))
 		this.stopWatchers.push(watch(() => this.ValBrokers_fk.value, (newValue, oldValue) => this.onUpdate('property.brokers_fk', this.ValBrokers_fk, newValue, oldValue)))
 
+		this.ValCity_fk = reactive(new modelFieldType.ForeignKey({
+			id: 'ValCity_fk',
+			originId: 'ValCity_fk',
+			area: 'PROPERTY',
+			field: 'CITY_FK',
+			relatedArea: 'CITY',
+			description: computed(() => this.Resources.CITY_FK13761),
+		}).cloneFrom(values?.ValCity_fk))
+		this.stopWatchers.push(watch(() => this.ValCity_fk.value, (newValue, oldValue) => this.onUpdate('property.city_fk', this.ValCity_fk, newValue, oldValue)))
+
 		/** The remaining form fields. */
 		this.ValPhoto = reactive(new modelFieldType.Image({
 			id: 'ValPhoto',
@@ -106,6 +116,49 @@ export default class ViewModel extends FormViewModelBase
 			ignoreFldSubmit: true,
 		}).cloneFrom(values?.TableBrokerName))
 		this.stopWatchers.push(watch(() => this.TableBrokerName.value, (newValue, oldValue) => this.onUpdate('broker.name', this.TableBrokerName, newValue, oldValue)))
+
+		this.ValBathroom_number = reactive(new modelFieldType.Number({
+			id: 'ValBathroom_number',
+			originId: 'ValBathroom_number',
+			area: 'PROPERTY',
+			field: 'BATHROOM_NUMBER',
+			maxDigits: 2,
+			decimalDigits: 0,
+			description: computed(() => this.Resources.BATHROOM_NUMBER01832),
+		}).cloneFrom(values?.ValBathroom_number))
+		this.stopWatchers.push(watch(() => this.ValBathroom_number.value, (newValue, oldValue) => this.onUpdate('property.bathroom_number', this.ValBathroom_number, newValue, oldValue)))
+
+		this.ValDate = reactive(new modelFieldType.Date({
+			id: 'ValDate',
+			originId: 'ValDate',
+			area: 'PROPERTY',
+			field: 'DATE',
+			description: computed(() => this.Resources.DAT56009),
+		}).cloneFrom(values?.ValDate))
+		this.stopWatchers.push(watch(() => this.ValDate.value, (newValue, oldValue) => this.onUpdate('property.date', this.ValDate, newValue, oldValue)))
+
+		this.ValSize = reactive(new modelFieldType.Number({
+			id: 'ValSize',
+			originId: 'ValSize',
+			area: 'PROPERTY',
+			field: 'SIZE',
+			maxDigits: 5,
+			decimalDigits: 0,
+			description: '',
+		}).cloneFrom(values?.ValSize))
+		this.stopWatchers.push(watch(() => this.ValSize.value, (newValue, oldValue) => this.onUpdate('property.size', this.ValSize, newValue, oldValue)))
+
+		this.TableCityCity = reactive(new modelFieldType.String({
+			type: 'Lookup',
+			id: 'TableCityCity',
+			originId: 'ValCity',
+			area: 'CITY',
+			field: 'CITY',
+			maxLength: 50,
+			description: computed(() => this.Resources.CITY35974),
+			ignoreFldSubmit: true,
+		}).cloneFrom(values?.TableCityCity))
+		this.stopWatchers.push(watch(() => this.TableCityCity.value, (newValue, oldValue) => this.onUpdate('city.city', this.TableCityCity, newValue, oldValue)))
 	}
 
 	/**

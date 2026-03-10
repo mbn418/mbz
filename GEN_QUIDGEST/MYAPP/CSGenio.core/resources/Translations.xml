@@ -45,6 +45,12 @@
   <msg id="Modules" code="MODULES33542">
     <ENUS>Modules</ENUS>
   </msg>
+  <msg id="CONUTRY_FK" code="CONUTRY_FK07117">
+    <ENUS>CONUTRY_FK</ENUS>
+  </msg>
+  <msg id="CODPROPERTY" code="CODPROPERTY44451">
+    <ENUS>CODPROPERTY</ENUS>
+  </msg>
   <msg id="Administrador" code="ADMINISTRADOR57294">
     <ENUS>Administrador</ENUS>
   </msg>
@@ -56,6 +62,9 @@
   </msg>
   <msg id="Result message" code="RESULT_MESSAGE40830">
     <ENUS>Result message</ENUS>
+  </msg>
+  <msg id="CLIENT_NAME" code="CLIENT_NAME18061">
+    <ENUS>CLIENT_NAME</ENUS>
   </msg>
   <msg id="Erro" code="ERRO38355">
     <ENUS>Erro</ENUS>
@@ -147,6 +156,9 @@
   <msg id="Message" code="MESSAGE30602">
     <ENUS>Message</ENUS>
   </msg>
+  <msg id="CITY_FK" code="CITY_FK13761">
+    <ENUS>CITY_FK</ENUS>
+  </msg>
   <msg id="Subject" code="SUBJECT33942">
     <ENUS>Subject</ENUS>
   </msg>
@@ -167,6 +179,12 @@
   </msg>
   <msg id="Horário" code="HORARIO56549">
     <ENUS>Horário</ENUS>
+  </msg>
+  <msg id="BATHROOM_NUMBER" code="BATHROOM_NUMBER01832">
+    <ENUS>BATHROOM_NUMBER</ENUS>
+  </msg>
+  <msg id="agent" code="AGENT48705">
+    <ENUS>agent</ENUS>
   </msg>
   <msg id="broker" code="BROKER37082">
     <ENUS>broker</ENUS>
@@ -198,14 +216,29 @@
   <msg id="Modo de processamento" code="MODO_DE_PROCESSAMENT14469">
     <ENUS>Modo de processamento</ENUS>
   </msg>
+  <msg id="PHOTO_ALBUM" code="PHOTO_ALBUM49258">
+    <ENUS>PHOTO_ALBUM</ENUS>
+  </msg>
+  <msg id="dat" code="DAT56009">
+    <ENUS>dat</ENUS>
+  </msg>
   <msg id="Process Type" code="PROCESS_TYPE50593">
     <ENUS>Process Type</ENUS>
+  </msg>
+  <msg id="city" code="CITY35974">
+    <ENUS>city</ENUS>
+  </msg>
+  <msg id="CONTACT" code="CONTACT05134">
+    <ENUS>CONTACT</ENUS>
   </msg>
   <msg id="Não responde" code="NAO_RESPONDE33275">
     <ENUS>Não responde</ENUS>
   </msg>
   <msg id="Result" code="RESULT40974">
     <ENUS>Result</ENUS>
+  </msg>
+  <msg id="PHOTO" code="PHOTO32097">
+    <ENUS>PHOTO</ENUS>
   </msg>
   <msg id="Async process attachments" code="ASYNC_PROCESS_ATTACH04785">
     <ENUS>Async process attachments</ENUS>
@@ -222,14 +255,23 @@
   <msg id="Level" code="LEVEL06184">
     <ENUS>Level</ENUS>
   </msg>
+  <msg id="EMAIL" code="EMAIL45345">
+    <ENUS>EMAIL</ENUS>
+  </msg>
   <msg id="Created by" code="CREATED_BY12292">
     <ENUS>Created by</ENUS>
   </msg>
   <msg id="Process mode" code="PROCESS_MODE22419">
     <ENUS>Process mode</ENUS>
   </msg>
+  <msg id="Country" code="COUNTRY64133">
+    <ENUS>Country</ENUS>
+  </msg>
   <msg id="A cancelar" code="A_CANCELAR43988">
     <ENUS>A cancelar</ENUS>
+  </msg>
+  <msg id="DESCRIPTION" code="DESCRIPTION07438">
+    <ENUS>DESCRIPTION</ENUS>
   </msg>
   <msg id="Status" code="STATUS62033">
     <ENUS>Status</ENUS>
@@ -318,6 +360,9 @@
   <msg id="Executed by external app" code="EXECUTED_BY_EXTERNAL36156">
     <ENUS>Executed by external app</ENUS>
   </msg>
+  <msg id="CODPROPETRY" code="CODPROPETRY08877">
+    <ENUS>CODPROPETRY</ENUS>
+  </msg>
   <msg id="Unidade orgânica" code="UNIDADE_ORGANICA38383">
     <ENUS>Unidade orgânica</ENUS>
   </msg>
@@ -359,6 +404,9 @@
   </msg>
   <msg id="Has login?" code="HAS_LOGIN_58044">
     <ENUS>Has login?</ENUS>
+  </msg>
+  <msg id="DATE" code="DATE13470">
+    <ENUS>DATE</ENUS>
   </msg>
   <msg id="a:" code="A_47238">
     <ENUS>to:</ENUS>

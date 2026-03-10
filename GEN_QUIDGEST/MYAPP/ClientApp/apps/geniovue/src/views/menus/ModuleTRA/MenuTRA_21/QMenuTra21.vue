@@ -330,7 +330,7 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-BROKER', 'changed-PROPERTY'],
+						globalEvents: ['changed-CITY', 'changed-BROKER', 'changed-PROPERTY'],
 						uuid: 'ba2163eb-711e-42c9-817f-9a19edfa3764',
 						allSelectedRows: 'false',
 						headerLevel: 1,

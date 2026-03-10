@@ -28,6 +28,27 @@ public class F_propertyForm : Form
 	public LookupControl BrokerName => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__BROKER__NAME");
 	public SeeMorePage BrokerNameSeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__BROKER__NAME");
 
+	/// <summary>
+	/// BATHROOM_NUMBER
+	/// </summary>
+	public BaseInputControl PropertyBathroom_number => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTY__BATHROOM_NUMBER", "#F_PROPERTY__PROPERTY__BATHROOM_NUMBER");
+
+	/// <summary>
+	/// dat
+	/// </summary>
+	public DateInputControl PropertyDate => new DateInputControl(driver, ContainerLocator, "#F_PROPERTY__PROPERTY__DATE");
+
+	/// <summary>
+	/// 
+	/// </summary>
+	public BaseInputControl PropertySize => new BaseInputControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTY__SIZE", "#F_PROPERTY__PROPERTY__SIZE");
+
+	/// <summary>
+	/// city
+	/// </summary>
+	public LookupControl CityCity => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__CITY__CITY");
+	public SeeMorePage CityCitySeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__CITY__CITY");
+
 	public F_propertyForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_PROPERTY", containerLocator: containerLocator) { }
 }

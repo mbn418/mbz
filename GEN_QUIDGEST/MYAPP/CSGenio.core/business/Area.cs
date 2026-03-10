@@ -30,12 +30,22 @@ namespace CSGenio.business
         private static AreaRef m_AreaS_UA = new AreaRef("TRA", "userauthorization", "s_ua");
         public static AreaRef AreaMEM { get { return m_AreaMEM; } }
         private static AreaRef m_AreaMEM = new AreaRef("TRA", "tramem", "mem");
+        public static AreaRef AreaCITY { get { return m_AreaCITY; } }
+        private static AreaRef m_AreaCITY = new AreaRef("TRA", "tracity", "city");
+        public static AreaRef AreaPHOTO_ALBUM { get { return m_AreaPHOTO_ALBUM; } }
+        private static AreaRef m_AreaPHOTO_ALBUM = new AreaRef("TRA", "traphoto", "photo_album");
         public static AreaRef AreaBROKER { get { return m_AreaBROKER; } }
         private static AreaRef m_AreaBROKER = new AreaRef("TRA", "trabroker", "broker");
+        public static AreaRef AreaAGENT { get { return m_AreaAGENT; } }
+        private static AreaRef m_AreaAGENT = new AreaRef("TRA", "traagent", "agent");
         public static AreaRef AreaPSW { get { return m_AreaPSW; } }
         private static AreaRef m_AreaPSW = new AreaRef("TRA", "userlogin", "psw");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
         private static AreaRef m_AreaS_APR = new AreaRef("TRA", "asyncprocess", "s_apr");
+        public static AreaRef AreaCONTACT { get { return m_AreaCONTACT; } }
+        private static AreaRef m_AreaCONTACT = new AreaRef("TRA", "tracontact", "contact");
+        public static AreaRef AreaCOUNTRY { get { return m_AreaCOUNTRY; } }
+        private static AreaRef m_AreaCOUNTRY = new AreaRef("TRA", "tracountry", "country");
         public static AreaRef AreaS_NM { get { return m_AreaS_NM; } }
         private static AreaRef m_AreaS_NM = new AreaRef("TRA", "notificationmessage", "s_nm");
         public static AreaRef AreaPROPERTY { get { return m_AreaPROPERTY; } }
@@ -76,9 +86,14 @@ namespace CSGenio.business
             "s_arg",
             "s_ua",
             "mem",
+            "city",
+            "photo_album",
             "broker",
+            "agent",
             "psw",
             "s_apr",
+            "contact",
+            "country",
             "s_nm",
             "property",
         });

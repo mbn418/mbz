@@ -66,6 +66,45 @@ namespace GenioMVC.Models
 			set { _broker = value; }
 		}
 
+		[DisplayName("BATHROOM_NUMBER")]
+		/// <summary>Field : "BATHROOM_NUMBER" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValBathroom_number")]
+		[NumericAttribute(0)]
+		public decimal? ValBathroom_number { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValBathroom_number, 0)); } set { klass.ValBathroom_number = Convert.ToDecimal(value); } }
+
+		[DisplayName("dat")]
+		/// <summary>Field : "dat" Tipo: "D" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValDate")]
+		[DataType(DataType.Date)]
+		[DateAttribute("D")]
+		public DateTime? ValDate { get { return klass.ValDate; } set { klass.ValDate = value ?? DateTime.MinValue; } }
+
+		[DisplayName("")]
+		/// <summary>Field : "" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValSize")]
+		[NumericAttribute(0)]
+		public decimal? ValSize { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSize, 0)); } set { klass.ValSize = Convert.ToDecimal(value); } }
+
+		[DisplayName("CITY_FK")]
+		/// <summary>Field : "CITY_FK" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValCity_fk")]
+		public string ValCity_fk { get { return klass.ValCity_fk; } set { klass.ValCity_fk = value; } }
+
+		private City _city;
+		[DisplayName("City")]
+		[ShouldSerialize("City")]
+		public virtual City City
+		{
+			get
+			{
+				if (!isEmptyModel && (_city == null || (!string.IsNullOrEmpty(ValCity_fk) && (_city.isEmptyModel || _city.klass.QPrimaryKey != ValCity_fk))))
+					_city = Models.City.Find(ValCity_fk, m_userContext, Identifier, _fieldsToSerialize);
+				_city ??= new Models.City(m_userContext, true, _fieldsToSerialize);
+				return _city;
+			}
+			set { _city = value; }
+		}
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Property.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
@@ -100,6 +139,10 @@ namespace GenioMVC.Models
 					case "broker":
 						_broker ??= new Broker(m_userContext, true, _fieldsToSerialize);
 						_broker.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
+					case "city":
+						_city ??= new City(m_userContext, true, _fieldsToSerialize);
+						_city.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
 						break;
 					default:
 						break;
