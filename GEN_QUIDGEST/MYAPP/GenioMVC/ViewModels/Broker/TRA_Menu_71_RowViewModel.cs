@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Country;
+namespace GenioMVC.ViewModels.Broker;
 
-public class TRA_Menu_411_RowViewModel : Models.Country
+public class TRA_Menu_71_RowViewModel : Models.Broker
 {
 	#region Constructors
 
-	public TRA_Menu_411_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public TRA_Menu_71_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public TRA_Menu_411_RowViewModel(UserContext userContext, CSGenioAcountry val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public TRA_Menu_71_RowViewModel(UserContext userContext, CSGenioAbroker val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,8 +36,32 @@ public class TRA_Menu_411_RowViewModel : Models.Country
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "COUNTRY",
-				Field = "COUNTRY",
+				Area = "BROKER",
+				Field = "PHOTO",
+			},
+			new ListColumn()
+			{
+				Order = 2,
+				Area = "BROKER",
+				Field = "BRITHDATE",
+			},
+			new ListColumn()
+			{
+				Order = 3,
+				Area = "BROKER",
+				Field = "PHONE_NUMBER",
+			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "BROKER",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "BROKER",
+				Field = "EMAIL",
 			},
 		];
 	}
@@ -52,10 +76,6 @@ public class TRA_Menu_411_RowViewModel : Models.Country
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
-
-		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
-		{
-		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{

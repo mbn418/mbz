@@ -456,6 +456,9 @@
   <data name="CANCELED_BY01167" xml:space="preserve">
     <value>Canceled by</value>
   </data>
+  <data name="PROPERTIES_BY_AGENTS43822" xml:space="preserve">
+    <value>properties by agents</value>
+  </data>
   <data name="ONE_BEDROOM55017" xml:space="preserve">
     <value>one bedroom</value>
   </data>
@@ -572,6 +575,9 @@
   </data>
   <data name="HAS_LOGIN_58044" xml:space="preserve">
     <value>Has login?</value>
+  </data>
+  <data name="NEW_MENU31759" xml:space="preserve">
+    <value>New Menu</value>
   </data>
   <data name="DATE13470" xml:space="preserve">
     <value>DATE</value>

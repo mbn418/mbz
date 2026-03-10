@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.City;
+namespace GenioMVC.ViewModels.Country;
 
-public class TRA_Menu_421_RowViewModel : Models.City
+public class TRA_Menu_51_RowViewModel : Models.Country
 {
 	#region Constructors
 
-	public TRA_Menu_421_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public TRA_Menu_51_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public TRA_Menu_421_RowViewModel(UserContext userContext, CSGenioAcity val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public TRA_Menu_51_RowViewModel(UserContext userContext, CSGenioAcountry val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -38,12 +38,6 @@ public class TRA_Menu_421_RowViewModel : Models.City
 				Order = 1,
 				Area = "COUNTRY",
 				Field = "COUNTRY",
-			},
-			new ListColumn()
-			{
-				Order = 2,
-				Area = "CITY",
-				Field = "CITY",
 			},
 		];
 	}

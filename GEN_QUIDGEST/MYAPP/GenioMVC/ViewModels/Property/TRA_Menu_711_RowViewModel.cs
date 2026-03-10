@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.City;
+namespace GenioMVC.ViewModels.Property;
 
-public class City_CountryValCountry_RowViewModel : Models.Country
+public class TRA_Menu_711_RowViewModel : Models.Property
 {
 	#region Constructors
 
-	public City_CountryValCountry_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public TRA_Menu_711_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public City_CountryValCountry_RowViewModel(UserContext userContext, CSGenioAcountry val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public TRA_Menu_711_RowViewModel(UserContext userContext, CSGenioAproperty val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,8 +36,62 @@ public class City_CountryValCountry_RowViewModel : Models.Country
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "COUNTRY",
-				Field = "COUNTRY",
+				Area = "PROPERTY",
+				Field = "TOPOOGY",
+			},
+			new ListColumn()
+			{
+				Order = 2,
+				Area = "PROPERTY",
+				Field = "SIZE",
+			},
+			new ListColumn()
+			{
+				Order = 3,
+				Area = "PROPERTY",
+				Field = "TITLE",
+			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "CITY",
+				Field = "CITY",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "BROKER",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 6,
+				Area = "PROPERTY",
+				Field = "BATHROOM_NUMBER",
+			},
+			new ListColumn()
+			{
+				Order = 7,
+				Area = "PROPERTY",
+				Field = "PHOTO",
+			},
+			new ListColumn()
+			{
+				Order = 8,
+				Area = "PROPERTY",
+				Field = "DATE",
+			},
+			new ListColumn()
+			{
+				Order = 9,
+				Area = "PROPERTY",
+				Field = "BUILDINGTYPE",
+			},
+			new ListColumn()
+			{
+				Order = 10,
+				Area = "PROPERTY",
+				Field = "PRICE",
 			},
 		];
 	}

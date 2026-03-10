@@ -1078,6 +1078,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "properties by agents"
+        /// </summary>
+        public static string PROPERTIES_BY_AGENTS43822 {
+            get {
+                return ResourceManager.GetString("PROPERTIES_BY_AGENTS43822", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "one bedroom"
         /// </summary>
         public static string ONE_BEDROOM55017 {
@@ -1425,6 +1434,15 @@ namespace Administration.Resources {
         public static string HAS_LOGIN_58044 {
             get {
                 return ResourceManager.GetString("HAS_LOGIN_58044", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "New Menu"
+        /// </summary>
+        public static string NEW_MENU31759 {
+            get {
+                return ResourceManager.GetString("NEW_MENU31759", resourceCulture);
             }
         }
 

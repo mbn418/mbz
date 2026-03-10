@@ -339,6 +339,9 @@
   <msg id="Canceled by" code="CANCELED_BY01167">
     <ENUS>Canceled by</ENUS>
   </msg>
+  <msg id="properties by agents" code="PROPERTIES_BY_AGENTS43822">
+    <ENUS>properties by agents</ENUS>
+  </msg>
   <msg id="one bedroom" code="ONE_BEDROOM55017">
     <ENUS>one bedroom</ENUS>
   </msg>
@@ -455,6 +458,9 @@
   </msg>
   <msg id="Has login?" code="HAS_LOGIN_58044">
     <ENUS>Has login?</ENUS>
+  </msg>
+  <msg id="New Menu" code="NEW_MENU31759">
+    <ENUS>New Menu</ENUS>
   </msg>
   <msg id="DATE" code="DATE13470">
     <ENUS>DATE</ENUS>

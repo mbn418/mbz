@@ -4,18 +4,6 @@ export default function getFormsRoutes()
 {
 	return [
 		{
-			path: '/:culture/:system/:module/form/CITY/:mode/:id?',
-			name: 'form-CITY',
-			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormCity/QFormCity.vue'),
-			meta: {
-				routeType: 'form',
-				baseArea: 'CITY',
-				humanKeyFields: ['ValCity'],
-				isPopup: false
-			}
-		},
-		{
 			path: '/:culture/:system/:module/form/CONTACT/:mode/:id?',
 			name: 'form-CONTACT',
 			props: route => propsConverter(route),

@@ -5,20 +5,6 @@ export default function getMenusRoutes()
 {
 	return [
 		{
-			path: '/:culture/:system/TRA/menu/TRA_421',
-			name: 'menu-TRA_421',
-			component: () => import('@/views/menus/ModuleTRA/MenuTRA_421/QMenuTra421.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'TRA',
-				order: '421',
-				baseArea: 'CITY',
-				hasInitialPHE: false,
-				humanKeyFields: ['ValCity'],
-				isPopup: false
-			}
-		},
-		{
 			path: '/:culture/:system/TRA/menu/TRA_32',
 			name: 'menu-TRA_32',
 			component: () => import('@/views/menus/ModuleTRA/MenuTRA_32/QMenuTra32.vue'),
@@ -47,13 +33,27 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/TRA/menu/TRA_411',
-			name: 'menu-TRA_411',
-			component: () => import('@/views/menus/ModuleTRA/MenuTRA_411/QMenuTra411.vue'),
+			path: '/:culture/:system/TRA/menu/TRA_71',
+			name: 'menu-TRA_71',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_71/QMenuTra71.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'TRA',
-				order: '411',
+				order: '71',
+				baseArea: 'BROKER',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValName', 'ValEmail'],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/TRA/menu/TRA_51',
+			name: 'menu-TRA_51',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_51/QMenuTra51.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'TRA',
+				order: '51',
 				baseArea: 'COUNTRY',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValCountry'],
@@ -71,6 +71,22 @@ export default function getMenusRoutes()
 				baseArea: 'PROPERTY',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValTitle', 'ValPrice'],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/TRA/menu/TRA_711',
+			name: 'menu-TRA_711',
+			component: () => import('@/views/menus/ModuleTRA/MenuTRA_711/QMenuTra711.vue'),
+			beforeEnter: [updateQueryParams],
+			meta: {
+				routeType: 'menu',
+				module: 'TRA',
+				order: '711',
+				baseArea: 'PROPERTY',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValTitle', 'ValPrice'],
+				limitations: ['broker' /* DB */],
 				isPopup: false
 			}
 		},
