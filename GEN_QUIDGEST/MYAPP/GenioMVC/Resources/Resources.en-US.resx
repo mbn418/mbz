@@ -201,6 +201,9 @@
 	<data name="ROLE60946" xml:space="preserve">
 		<value>Role</value>
 	</data>
+	<data name="COUNTRIES64527" xml:space="preserve">
+		<value>Countries</value>
+	</data>
 	<data name="PROCESS_TYPE25967" xml:space="preserve">
 		<value>Process type</value>
 	</data>
@@ -500,6 +503,9 @@
 	</data>
 	<data name="MODULE42049" xml:space="preserve">
 		<value>Module</value>
+	</data>
+	<data name="LOCATION54790" xml:space="preserve">
+		<value>Location</value>
 	</data>
 	<data name="DESAUTORIZADO34584" xml:space="preserve">
 		<value>Desautorizado</value>

@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Photo_album;
+namespace GenioMVC.ViewModels.City;
 
-public class TRA_Menu_51_RowViewModel : Models.Photo_album
+public class TRA_Menu_421_RowViewModel : Models.City
 {
 	#region Constructors
 
-	public TRA_Menu_51_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public TRA_Menu_421_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public TRA_Menu_51_RowViewModel(UserContext userContext, CSGenioAphoto_album val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public TRA_Menu_421_RowViewModel(UserContext userContext, CSGenioAcity val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,20 +36,14 @@ public class TRA_Menu_51_RowViewModel : Models.Photo_album
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "PHOTO_ALBUM",
-				Field = "TITLE",
+				Area = "COUNTRY",
+				Field = "COUNTRY",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "PROPERTY",
-				Field = "TITLE",
-			},
-			new ListColumn()
-			{
-				Order = 3,
-				Area = "PHOTO_ALBUM",
-				Field = "PHOTO",
+				Area = "CITY",
+				Field = "CITY",
 			},
 		];
 	}

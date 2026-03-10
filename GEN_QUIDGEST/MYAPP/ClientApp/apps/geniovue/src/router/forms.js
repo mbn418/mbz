@@ -28,6 +28,18 @@ export default function getFormsRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/:module/form/COUNTRY/:mode/:id?',
+			name: 'form-COUNTRY',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormCountry/QFormCountry.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'COUNTRY',
+				humanKeyFields: ['ValCountry'],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/:module/form/F_BROKER/:mode/:id?',
 			name: 'form-F_BROKER',
 			props: route => propsConverter(route),

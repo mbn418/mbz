@@ -84,6 +84,9 @@
   <msg id="Role" code="ROLE60946">
     <ENUS>Role</ENUS>
   </msg>
+  <msg id="Countries" code="COUNTRIES64527">
+    <ENUS>Countries</ENUS>
+  </msg>
   <msg id="Process type" code="PROCESS_TYPE25967">
     <ENUS>Process type</ENUS>
   </msg>
@@ -383,6 +386,9 @@
   </msg>
   <msg id="Module" code="MODULE42049">
     <ENUS>Module</ENUS>
+  </msg>
+  <msg id="Location" code="LOCATION54790">
+    <ENUS>Location</ENUS>
   </msg>
   <msg id="Desautorizado" code="DESAUTORIZADO34584">
     <ENUS>Desautorizado</ENUS>

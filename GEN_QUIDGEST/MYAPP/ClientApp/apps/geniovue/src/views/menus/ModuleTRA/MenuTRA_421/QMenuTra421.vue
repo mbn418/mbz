@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_51]/ -->
+					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_421]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuTRA_51ViewModel.js'
+	import MenuViewModel from './QMenuTRA_421ViewModel.js'
 
-	const requiredTextResources = ['QMenuTRA_51', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuTRA_421', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_51]/
+// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_421]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuTra51',
+		name: 'QMenuTra421',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_51', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_421', false),
 
 				interfaceMetadata: {
-					id: 'QMenuTRA_51', // Used for resources
+					id: 'QMenuTRA_421', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '51',
+					id: '421',
 					isMenuList: true,
-					designation: computed(() => this.Resources.PHOTO_ALBUM49258),
-					acronym: 'TRA_51',
-					name: 'PHOTO_ALBUM',
-					route: 'menu-TRA_51',
-					order: '51',
-					controller: 'PHOTO_ALBUM',
-					action: 'TRA_Menu_51',
+					designation: computed(() => this.Resources.CITY35974),
+					acronym: 'TRA_421',
+					name: 'CITY',
+					route: 'menu-TRA_421',
+					order: '421',
+					controller: 'CITY',
+					action: 'TRA_Menu_421',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'TRA_Menu_51',
-						controller: 'PHOTO_ALBUM',
-						action: 'TRA_Menu_51',
+						id: 'TRA_Menu_421',
+						controller: 'CITY',
+						action: 'TRA_Menu_421',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -148,47 +148,35 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValTitle',
-								area: 'PHOTO_ALBUM',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE11628),
+								name: 'Country.ValCountry',
+								area: 'COUNTRY',
+								field: 'COUNTRY',
+								label: computed(() => this.Resources.COUNTRY64133),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+								pkColumn: 'ValCodcountry',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValCity',
+								area: 'CITY',
+								field: 'CITY',
+								label: computed(() => this.Resources.CITY35974),
 								dataLength: 50,
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'Property.ValTitle',
-								area: 'PROPERTY',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE11628),
-								dataLength: 80,
-								scrollData: 30,
-								export: 1,
-								pkColumn: 'ValCodproperty',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ImageColumn({
-								order: 3,
-								name: 'ValPhoto',
-								area: 'PHOTO_ALBUM',
-								field: 'PHOTO',
-								label: computed(() => this.Resources.PHOTO32097),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO32097)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'TRA_Menu_51',
+							name: 'TRA_Menu_421',
 							serverMode: true,
-							pkColumn: 'ValCodphoto_album',
-							tableAlias: 'PHOTO_ALBUM',
-							tableNamePlural: computed(() => this.Resources.PHOTO_ALBUM49258),
+							pkColumn: 'ValCodcity',
+							tableAlias: 'CITY',
+							tableNamePlural: computed(() => this.Resources.CITY35974),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.PHOTO_ALBUM49258),
+							tableTitle: computed(() => this.Resources.CITY35974),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -209,7 +197,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'PHOTO',
+										formName: 'CITY',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -225,7 +213,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'PHOTO',
+										formName: 'CITY',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -241,7 +229,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'PHOTO',
+										formName: 'CITY',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -257,7 +245,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'PHOTO',
+										formName: 'CITY',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -275,7 +263,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'PHOTO',
+										formName: 'CITY',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -291,36 +279,36 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_TRA_511',
-								name: 'form-PHOTO',
+								id: 'RCA_TRA_4211',
+								name: 'form-CITY',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodphoto_album
+											fnValueSelector: (row) => row.ValCodcity
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'PHOTO'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'CITY'
 								}
 							},
 							formsDefinition: {
-								'PHOTO': {
-									fnKeySelector: (row) => row.Fields.ValCodphoto_album,
+								'CITY': {
+									fnKeySelector: (row) => row.Fields.ValCodcity,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
+							defaultSearchColumnName: 'ValCity',
+							defaultSearchColumnNameOriginal: 'ValCity',
 							defaultColumnSorting: {
-								columnName: 'ValTitle',
+								columnName: 'ValCity',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-PROPERTY', 'changed-PHOTO_ALBUM'],
-						uuid: 'be329743-8d1a-49bd-a37e-1e78dbfbd409',
+						globalEvents: ['changed-CITY', 'changed-COUNTRY'],
+						uuid: '9638b21d-f1c8-4f9f-9cf2-dfaa838056b6',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)
@@ -346,7 +334,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_51]/
+// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_421]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -354,18 +342,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_51]/
+// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_421]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FUNCTIONS_JS TRA_51]/
+// USE /[MANUAL TRA FUNCTIONS_JS TRA_421]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_51]/
+// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_421]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}
