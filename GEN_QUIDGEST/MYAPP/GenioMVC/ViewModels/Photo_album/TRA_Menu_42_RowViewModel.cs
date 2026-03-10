@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Property;
+namespace GenioMVC.ViewModels.Photo_album;
 
-public class TRA_Menu_611_RowViewModel : Models.Property
+public class TRA_Menu_42_RowViewModel : Models.Photo_album
 {
 	#region Constructors
 
-	public TRA_Menu_611_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public TRA_Menu_42_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public TRA_Menu_611_RowViewModel(UserContext userContext, CSGenioAproperty val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public TRA_Menu_42_RowViewModel(UserContext userContext, CSGenioAphoto_album val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,62 +36,20 @@ public class TRA_Menu_611_RowViewModel : Models.Property
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "PROPERTY",
-				Field = "TOPOOGY",
+				Area = "PHOTO_ALBUM",
+				Field = "TITLE",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "PROPERTY",
-				Field = "SIZE",
-			},
-			new ListColumn()
-			{
-				Order = 3,
-				Area = "PROPERTY",
 				Field = "TITLE",
 			},
 			new ListColumn()
 			{
-				Order = 4,
-				Area = "CITY",
-				Field = "CITY",
-			},
-			new ListColumn()
-			{
-				Order = 5,
-				Area = "BROKER",
-				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 6,
-				Area = "PROPERTY",
-				Field = "BATHROOM_NUMBER",
-			},
-			new ListColumn()
-			{
-				Order = 7,
-				Area = "PROPERTY",
+				Order = 3,
+				Area = "PHOTO_ALBUM",
 				Field = "PHOTO",
-			},
-			new ListColumn()
-			{
-				Order = 8,
-				Area = "PROPERTY",
-				Field = "DATE",
-			},
-			new ListColumn()
-			{
-				Order = 9,
-				Area = "PROPERTY",
-				Field = "BUILDINGTYPE",
-			},
-			new ListColumn()
-			{
-				Order = 10,
-				Area = "PROPERTY",
-				Field = "PRICE",
 			},
 		];
 	}
@@ -106,6 +64,10 @@ public class TRA_Menu_611_RowViewModel : Models.Property
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
+
+		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
+		{
+		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{

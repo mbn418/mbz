@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_32]/ -->
+					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_51]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuTRA_32ViewModel.js'
+	import MenuViewModel from './QMenuTRA_51ViewModel.js'
 
-	const requiredTextResources = ['QMenuTRA_32', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuTRA_51', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_32]/
+// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_51]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuTra32',
+		name: 'QMenuTra51',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_32', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_51', false),
 
 				interfaceMetadata: {
-					id: 'QMenuTRA_32', // Used for resources
+					id: 'QMenuTRA_51', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '32',
+					id: '51',
 					isMenuList: true,
-					designation: computed(() => this.Resources.PHOTO_ALBUM49258),
-					acronym: 'TRA_32',
-					name: 'PHOTO_ALBUM',
-					route: 'menu-TRA_32',
-					order: '32',
-					controller: 'PHOTO_ALBUM',
-					action: 'TRA_Menu_32',
+					designation: computed(() => this.Resources.BROKER37082),
+					acronym: 'TRA_51',
+					name: 'CITY',
+					route: 'menu-TRA_51',
+					order: '51',
+					controller: 'BROKER',
+					action: 'TRA_Menu_51',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'TRA_Menu_32',
-						controller: 'PHOTO_ALBUM',
-						action: 'TRA_Menu_32',
+						id: 'TRA_Menu_51',
+						controller: 'BROKER',
+						action: 'TRA_Menu_51',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -146,142 +146,81 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.TextColumn({
-								order: 1,
-								name: 'ValTitle',
-								area: 'PHOTO_ALBUM',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE11628),
-								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'Property.ValTitle',
-								area: 'PROPERTY',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE11628),
-								dataLength: 80,
-								scrollData: 30,
-								export: 1,
-								pkColumn: 'ValCodproperty',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
-								order: 3,
+								order: 1,
 								name: 'ValPhoto',
-								area: 'PHOTO_ALBUM',
+								area: 'BROKER',
 								field: 'PHOTO',
-								label: computed(() => this.Resources.PHOTO32097),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO32097)),
+								label: computed(() => this.Resources.PHOTO38852),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO38852)),
 								scrollData: 3,
 								sortable: false,
 								searchable: false,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 2,
+								name: 'ValBrithdate',
+								area: 'BROKER',
+								field: 'BRITHDATE',
+								label: computed(() => this.Resources.BIRTHDAY30236),
+								scrollData: 8,
+								dateTimeType: 'date',
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'ValPhone_number',
+								area: 'BROKER',
+								field: 'PHONE_NUMBER',
+								label: computed(() => this.Resources.PHONE_NUMBER54560),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 4,
+								name: 'ValName',
+								area: 'BROKER',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 5,
+								name: 'ValEmail',
+								area: 'BROKER',
+								field: 'EMAIL',
+								label: computed(() => this.Resources.EMAIL25170),
+								dataLength: 250,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'TRA_Menu_32',
+							name: 'TRA_Menu_51',
 							serverMode: true,
-							pkColumn: 'ValCodphoto_album',
-							tableAlias: 'PHOTO_ALBUM',
-							tableNamePlural: computed(() => this.Resources.PHOTO_ALBUM49258),
+							pkColumn: 'ValCodbroker',
+							tableAlias: 'BROKER',
+							tableNamePlural: computed(() => this.Resources.BROKER37082),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.PHOTO_ALBUM49258),
+							tableTitle: computed(() => this.Resources.BROKER37082),
 							showAlternatePagination: true,
 							permissions: {
+								canView: false,
+								canEdit: false,
+								canDuplicate: false,
+								canDelete: false,
+								canInsert: false
 							},
 							searchBarConfig: {
 								visibility: true
 							},
 							allowColumnFilters: true,
 							allowColumnSort: true,
-							crudActions: [
-								{
-									id: 'show',
-									name: 'show',
-									title: computed(() => this.Resources.CONSULTAR57388),
-									icon: {
-										icon: 'view'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'PHOTO',
-										mode: 'SHOW',
-										isControlled: true
-									}
-								},
-								{
-									id: 'edit',
-									name: 'edit',
-									title: computed(() => this.Resources.EDITAR11616),
-									icon: {
-										icon: 'pencil'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'PHOTO',
-										mode: 'EDIT',
-										isControlled: true
-									}
-								},
-								{
-									id: 'duplicate',
-									name: 'duplicate',
-									title: computed(() => this.Resources.DUPLICAR09748),
-									icon: {
-										icon: 'duplicate'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'PHOTO',
-										mode: 'DUPLICATE',
-										isControlled: true
-									}
-								},
-								{
-									id: 'delete',
-									name: 'delete',
-									title: computed(() => this.Resources.ELIMINAR21155),
-									icon: {
-										icon: 'delete'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'PHOTO',
-										mode: 'DELETE',
-										isControlled: true
-									}
-								}
-							],
-							generalActions: [
-								{
-									id: 'insert',
-									name: 'insert',
-									title: computed(() => this.Resources.INSERIR43365),
-									icon: {
-										icon: 'add'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'PHOTO',
-										mode: 'NEW',
-										repeatInsertion: false,
-										isControlled: true
-									}
-								},
-							],
 							generalCustomActions: [
 							],
 							groupActions: [
@@ -291,36 +230,31 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_TRA_321',
-								name: 'form-PHOTO',
+								id: 'RCA_TRA_511',
+								name: 'menu-TRA_511',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
-											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodphoto_album
+											identifier: 'broker',
+											fnValueSelector: (row) => row.ValCodbroker
 										},
 									],
-									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'PHOTO'
+									action: vm.openMenuAction, type: 'menu', menuName: 'TRA_511'
 								}
 							},
 							formsDefinition: {
-								'PHOTO': {
-									fnKeySelector: (row) => row.Fields.ValCodphoto_album,
-									isPopup: false
-								},
 							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: 'ValTitle',
+								columnName: '',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-PROPERTY', 'changed-PHOTO_ALBUM'],
-						uuid: 'be329743-8d1a-49bd-a37e-1e78dbfbd409',
+						globalEvents: ['changed-BROKER'],
+						uuid: '9638b21d-f1c8-4f9f-9cf2-dfaa838056b6',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)
@@ -346,7 +280,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_32]/
+// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_51]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -354,18 +288,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_32]/
+// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_51]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FUNCTIONS_JS TRA_32]/
+// USE /[MANUAL TRA FUNCTIONS_JS TRA_51]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_32]/
+// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_51]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

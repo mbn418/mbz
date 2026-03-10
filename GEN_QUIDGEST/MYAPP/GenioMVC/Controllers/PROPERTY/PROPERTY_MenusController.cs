@@ -29,7 +29,7 @@ namespace GenioMVC.Controllers
 	public partial class PropertyController : ControllerBase
 	{
 		private static readonly NavigationLocation ACTION_TRA_MENU_21 = new NavigationLocation("PROPERTIES34868", "TRA_Menu_21", "Property") { vueRouteName = "menu-TRA_21" };
-		private static readonly NavigationLocation ACTION_TRA_MENU_611 = new NavigationLocation("PROPERTIES34868", "TRA_Menu_611", "Property") { vueRouteName = "menu-TRA_611" };
+		private static readonly NavigationLocation ACTION_TRA_MENU_511 = new NavigationLocation("PROPERTIES34868", "TRA_Menu_511", "Property") { vueRouteName = "menu-TRA_511" };
 
 
 		//
@@ -98,14 +98,14 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Property/TRA_Menu_611
-		[ActionName("TRA_Menu_611")]
+		// GET: /Property/TRA_Menu_511
+		[ActionName("TRA_Menu_511")]
 		[HttpPost]
-		public ActionResult TRA_Menu_611([FromBody] RequestMenuModel requestModel)
+		public ActionResult TRA_Menu_511([FromBody] RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
-			TRA_Menu_611_ViewModel model = new(m_userContext);
+			TRA_Menu_511_ViewModel model = new(m_userContext);
 
 			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
 				requestModel.TableConfiguration,
@@ -117,7 +117,7 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "TRA_Menu_611");
+				Navigation.SetValue("HomePage", "TRA_Menu_511");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
 			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_property")))
@@ -136,12 +136,12 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_TRA_MENU_611.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_TRA_MENU_611.Action)
+				(Navigation.CurrentLevel == null || !ACTION_TRA_MENU_511.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_TRA_MENU_511.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_TRA_MENU_611.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_TRA_MENU_511.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
@@ -150,13 +150,13 @@ namespace GenioMVC.Controllers
 				Navigation.SetValue("broker", querystring["broker"]);
 
 
-// USE /[MANUAL TRA MENU_GET 611]/
+// USE /[MANUAL TRA MENU_GET 511]/
 
 			// Table List Export - check if user is exporting the Qlisting
 			if (querystring["ExportList"] != null && Convert.ToBoolean(querystring["ExportList"]) && querystring["ExportType"] != null)
 			{
 				string exportType = querystring["ExportType"];
-				string file = "TRA_Menu_611_" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "." + exportType;
+				string file = "TRA_Menu_511_" + DateTime.Now.ToString("ddMMyyyyhhmmss") + "." + exportType;
 				ListingMVC<CSGenioAproperty> listing = null;
 				CriteriaSet conditions = null;
 				List<CSGenio.framework.Exports.QColumn> columns = null;
@@ -170,11 +170,11 @@ namespace GenioMVC.Controllers
 				}*/
 
 				byte[] fileBytes = null;
-// USE /[MANUAL TRA OVERRQEXPORT 611]/
+// USE /[MANUAL TRA OVERRQEXPORT 511]/
 				// Protected against cases where it receive zero columns. Otherwise, it will select all columns in the area.
 				if (listing.RequestFields.Length == 0)
 					return JsonERROR(Resources.Resources.A_EXPORTACAO_NAO_POD03671);
-				fileBytes = new CSGenio.framework.Exports(UserContext.Current.User).ExportList(listing, conditions, columns, exportType, file,ACTION_TRA_MENU_611.Name);
+				fileBytes = new CSGenio.framework.Exports(UserContext.Current.User).ExportList(listing, conditions, columns, exportType, file,ACTION_TRA_MENU_511.Name);
 
 				QCache.Instance.ExportFiles.Put(file, fileBytes);
 				return Json(GetJsonForDownloadExportFile(file, querystring["ExportType"]));
@@ -183,12 +183,12 @@ namespace GenioMVC.Controllers
 			if (querystring["ImportList"] != null && Convert.ToBoolean(querystring["ImportList"]) && querystring["ImportType"] != null)
 			{
 				string importType =  querystring["ImportType"];
-				string file = "TRA_Menu_611_Template" + "." + importType;
+				string file = "TRA_Menu_511_Template" + "." + importType;
 				List<CSGenio.framework.Exports.QColumn> columns = null;
 				model.LoadToExportTemplate(out columns);
 				byte[] fileBytes = null;
 
-				fileBytes = new CSGenio.framework.Exports(UserContext.Current.User).ExportTemplate(columns, importType, file,ACTION_TRA_MENU_611.Name);
+				fileBytes = new CSGenio.framework.Exports(UserContext.Current.User).ExportTemplate(columns, importType, file,ACTION_TRA_MENU_511.Name);
 
 				QCache.Instance.ExportFiles.Put(file, fileBytes);
 				return Json(GetJsonForDownloadExportFile(file, importType));
@@ -208,10 +208,10 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// POST: /Property/TRA_Menu_611_UploadFile
+		// POST: /Property/TRA_Menu_511_UploadFile
 		[HttpPost]
-		public ActionResult TRA_Menu_611_UploadFile(string importType, string qqfile) {
-			TRA_Menu_611_ViewModel model = new TRA_Menu_611_ViewModel(UserContext.Current);
+		public ActionResult TRA_Menu_511_UploadFile(string importType, string qqfile) {
+			TRA_Menu_511_ViewModel model = new TRA_Menu_511_ViewModel(UserContext.Current);
 
 			PersistentSupport sp = UserContext.Current.PersistentSupport;
 			List<CSGenioAproperty> rows = new List<CSGenioAproperty>();
