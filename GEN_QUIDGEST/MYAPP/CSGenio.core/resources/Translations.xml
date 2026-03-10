@@ -117,11 +117,20 @@
   <msg id="Properties" code="PROPERTIES34868">
     <ENUS>Properties</ENUS>
   </msg>
+  <msg id="2 bredrooms" code="_2_BREDROOMS10489">
+    <ENUS>2 bredrooms</ENUS>
+  </msg>
   <msg id="Notification Messages" code="NOTIFICATION_MESSAGE60981">
     <ENUS>Notification Messages</ENUS>
   </msg>
+  <msg id="No Bedrooms" code="NO_BEDROOMS09923">
+    <ENUS>No Bedrooms</ENUS>
+  </msg>
   <msg id="Sender" code="SENDER07671">
     <ENUS>Sender</ENUS>
+  </msg>
+  <msg id="TOPOOGY" code="TOPOOGY11786">
+    <ENUS>TOPOOGY</ENUS>
   </msg>
   <msg id="Text after signature" code="TEXT_AFTER_SIGNATURE11837">
     <ENUS>Text after signature</ENUS>
@@ -231,6 +240,9 @@
   <msg id="CONTACT" code="CONTACT05134">
     <ENUS>CONTACT</ENUS>
   </msg>
+  <msg id="BUILDINGTYPE" code="BUILDINGTYPE40152">
+    <ENUS>BUILDINGTYPE</ENUS>
+  </msg>
   <msg id="Não responde" code="NAO_RESPONDE33275">
     <ENUS>Não responde</ENUS>
   </msg>
@@ -282,6 +294,9 @@
   <msg id="Status" code="STATUS62033">
     <ENUS>Status</ENUS>
   </msg>
+  <msg id="Typology" code="TYPOLOGY11991">
+    <ENUS>Typology</ENUS>
+  </msg>
   <msg id="Global" code="GLOBAL58588">
     <ENUS>Global</ENUS>
   </msg>
@@ -312,11 +327,17 @@
   <msg id="Consulta" code="CONSULTA40695">
     <ENUS>Consulta</ENUS>
   </msg>
+  <msg id="House" code="HOUSE01993">
+    <ENUS>House</ENUS>
+  </msg>
   <msg id="Start time" code="START_TIME30037">
     <ENUS>Start time</ENUS>
   </msg>
   <msg id="Canceled by" code="CANCELED_BY01167">
     <ENUS>Canceled by</ENUS>
+  </msg>
+  <msg id="one bedroom" code="ONE_BEDROOM55017">
+    <ENUS>one bedroom</ENUS>
   </msg>
   <msg id="Async process arguments" code="ASYNC_PROCESS_ARGUME13794">
     <ENUS>Async process arguments</ENUS>
@@ -335,6 +356,9 @@
   </msg>
   <msg id="Real time status" code="REAL_TIME_STATUS00476">
     <ENUS>Real time status</ENUS>
+  </msg>
+  <msg id="3 bedrooms" code="_3_BEDROOMS27305">
+    <ENUS>3 bedrooms</ENUS>
   </msg>
   <msg id="Request date" code="REQUEST_DATE25771">
     <ENUS>Request date</ENUS>
@@ -381,6 +405,9 @@
   <msg id="Image" code="IMAGE65174">
     <ENUS>Image</ENUS>
   </msg>
+  <msg id="Other" code="OTHER37293">
+    <ENUS>Other</ENUS>
+  </msg>
   <msg id="Em execução" code="EM_EXECUCAO53706">
     <ENUS>Em execução</ENUS>
   </msg>
@@ -402,11 +429,23 @@
   <msg id="Created on" code="CREATED_ON00051">
     <ENUS>Created on</ENUS>
   </msg>
+  <msg id="More" code="MORE38452">
+    <ENUS>More</ENUS>
+  </msg>
   <msg id="Create a website alert" code="CREATE_A_WEBSITE_ALE02013">
     <ENUS>Create a website alert</ENUS>
   </msg>
+  <msg id="TOPOLOGY" code="TOPOLOGY47951">
+    <ENUS>TOPOLOGY</ENUS>
+  </msg>
   <msg id="Id" code="ID36840">
     <ENUS>Id</ENUS>
+  </msg>
+  <msg id="building_type" code="BUILDING_TYPE60076">
+    <ENUS>building_type</ENUS>
+  </msg>
+  <msg id="Apartment" code="APARTMENT12665">
+    <ENUS>Apartment</ENUS>
   </msg>
   <msg id="Has login?" code="HAS_LOGIN_58044">
     <ENUS>Has login?</ENUS>

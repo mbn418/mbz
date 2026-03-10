@@ -255,7 +255,7 @@
 						</q-group-box-container>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.F_PROPERTY__CITY__CITY.isVisible">
+				<q-row v-if="controls.F_PROPERTY__CITY__CITY.isVisible || controls.F_PROPERTY__PROPERTY__BUILDINGTYPE.isVisible || controls.F_PROPERTY__PROPERTY__TOPOOGY.isVisible">
 					<q-col
 						v-if="controls.F_PROPERTY__CITY__CITY.isVisible"
 						cols="auto">
@@ -275,6 +275,47 @@
 								v-if="controls.F_PROPERTY__CITY__CITY.seeMoreIsVisible"
 								v-bind="controls.F_PROPERTY__CITY__CITY.seeMoreParams"
 								v-on="controls.F_PROPERTY__CITY__CITY.handlers" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_PROPERTY__PROPERTY__BUILDINGTYPE.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__PROPERTY__BUILDINGTYPE.isVisible"
+							class="i-text"
+							v-bind="controls.F_PROPERTY__PROPERTY__BUILDINGTYPE"
+							v-on="controls.F_PROPERTY__PROPERTY__BUILDINGTYPE.handlers"
+							:loading="controls.F_PROPERTY__PROPERTY__BUILDINGTYPE.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-select
+								v-if="controls.F_PROPERTY__PROPERTY__BUILDINGTYPE.isVisible"
+								v-bind="controls.F_PROPERTY__PROPERTY__BUILDINGTYPE.props"
+								@update:model-value="model.ValBuildingtype.fnUpdateValue" />
+						</base-input-structure>
+					</q-col>
+					<q-col
+						v-if="controls.F_PROPERTY__PROPERTY__TOPOOGY.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.F_PROPERTY__PROPERTY__TOPOOGY.isVisible"
+							class="i-radio-container"
+							v-bind="controls.F_PROPERTY__PROPERTY__TOPOOGY"
+							v-on="controls.F_PROPERTY__PROPERTY__TOPOOGY.handlers"
+							:label-position="labelAlignment.topleft"
+							:loading="controls.F_PROPERTY__PROPERTY__TOPOOGY.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-radio-group
+								v-if="controls.F_PROPERTY__PROPERTY__TOPOOGY.isVisible"
+								v-bind="controls.F_PROPERTY__PROPERTY__TOPOOGY.props"
+								v-on="controls.F_PROPERTY__PROPERTY__TOPOOGY.handlers">
+								<q-radio-button
+									v-for="radio in controls.F_PROPERTY__PROPERTY__TOPOOGY.items"
+									:key="radio.key"
+									:label="radio.value"
+									:value="radio.key" />
+							</q-radio-group>
 						</base-input-structure>
 					</q-col>
 				</q-row>
@@ -801,6 +842,312 @@
 						controlLimits: [
 						],
 					}, this),
+					F_PROPERTY__PROPERTY__BUILDINGTYPE: new fieldControlClass.ArrayStringControl({
+						modelField: 'ValBuildingtype',
+						valueChangeEvent: 'fieldChange:property.buildingtype',
+						id: 'F_PROPERTY__PROPERTY__BUILDINGTYPE',
+						name: 'BUILDINGTYPE',
+						size: 'mini',
+						label: computed(() => this.Resources.BUILDINGTYPE40152),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxLength: 1,
+						arrayName: 'building_type',
+						helpShortItem: 'None',
+						helpDetailedItem: 'None',
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PROPERTY__TOPOOGY: new fieldControlClass.RadioGroupControl({
+						modelField: 'ValTopoogy',
+						valueChangeEvent: 'fieldChange:property.topoogy',
+						id: 'F_PROPERTY__PROPERTY__TOPOOGY',
+						name: 'TOPOOGY',
+						label: computed(() => this.Resources.TOPOLOGY47951),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxIntegers: 1,
+						maxDecimals: 0,
+						arrayName: 'Typology',
+						columns: 1,
+						controlLimits: [
+						],
+					}, this),
+					F_PROPERTY__PSEUD__PROPERTY_GRID: new fieldControlClass.TableListControl({
+						id: 'F_PROPERTY__PSEUD__PROPERTY_GRID',
+						name: 'PROPERTY_GRID',
+						size: '',
+						label: computed(() => this.Resources.PROPERTIES34868),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						controller: 'PROPERTY',
+						action: 'F_property_ValProperty_grid',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.TextColumn({
+								order: 1,
+								name: 'ValTitle',
+								area: 'PROPERTY',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE11628),
+								dataLength: 80,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ImageColumn({
+								order: 2,
+								name: 'ValPhoto',
+								area: 'PROPERTY',
+								field: 'PHOTO',
+								label: computed(() => this.Resources.PHOTO38852),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO38852)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValProperty_grid',
+							serverMode: true,
+							pkColumn: 'ValCodproperty',
+							tableAlias: 'PROPERTY',
+							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.PROPERTIES34868),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false
+							},
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+							},
+							formsDefinition: {
+							},
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-CITY', 'changed-BROKER', 'changed-PROPERTY'],
+						uuid: 'F_property_ValProperty_grid',
+						allSelectedRows: 'false',
+						controlLimits: [
+							{
+								identifier: ['id', 'property'],
+								dependencyEvents: ['fieldChange:property.codproperty'],
+								dependencyField: 'PROPERTY.CODPROPERTY',
+								fnValueSelector: (model) => model.ValCodproperty.value
+							},
+						],
+					}, this),
+					F_PROPERTY__PSEUD__CONTACT_GRID: new fieldControlClass.TableListControl({
+						id: 'F_PROPERTY__PSEUD__CONTACT_GRID',
+						name: 'CONTACT_GRID',
+						size: '',
+						label: computed(() => this.Resources.CONTACT05134),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						controller: 'PROPERTY',
+						action: 'F_property_ValContact_grid',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.DateColumn({
+								order: 1,
+								name: 'ValDate',
+								area: 'CONTACT',
+								field: 'DATE',
+								label: computed(() => this.Resources.DATE13470),
+								scrollData: 8,
+								dateTimeType: 'date',
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValClient_name',
+								area: 'CONTACT',
+								field: 'CLIENT_NAME',
+								label: computed(() => this.Resources.CLIENT_NAME18061),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'ValDescription',
+								area: 'CONTACT',
+								field: 'DESCRIPTION',
+								label: computed(() => this.Resources.DESCRIPTION07438),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValContact_grid',
+							serverMode: true,
+							pkColumn: 'ValCodcontact',
+							tableAlias: 'CONTACT',
+							tableNamePlural: computed(() => this.Resources.CONTACT05134),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.CONTACT05134),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false
+							},
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'CONTACT',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'CONTACT',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'CONTACT',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'CONTACT',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'CONTACT',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+								id: 'RCA__CONTACT',
+								name: '_CONTACT',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'CONTACT',
+									mode: 'SHOW',
+									isControlled: true
+								}
+							},
+							formsDefinition: {
+								'CONTACT': {
+									fnKeySelector: (row) => row.Fields.ValCodcontact,
+									isPopup: true
+								},
+							},
+							defaultSearchColumnName: '',
+							defaultSearchColumnNameOriginal: '',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-CONTACT', 'changed-PROPERTY'],
+						uuid: 'F_property_ValContact_grid',
+						allSelectedRows: 'false',
+						controlLimits: [
+							{
+								identifier: ['id', 'property'],
+								dependencyEvents: ['fieldChange:property.codproperty'],
+								dependencyField: 'PROPERTY.CODPROPERTY',
+								fnValueSelector: (model) => model.ValCodproperty.value
+							},
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -816,6 +1163,8 @@
 				]),
 
 				tableFields: readonly([
+					'F_PROPERTY__PSEUD__PROPERTY_GRID',
+					'F_PROPERTY__PSEUD__CONTACT_GRID',
 				]),
 
 				timelineFields: readonly([
@@ -838,6 +1187,8 @@
 						set ValBathroom_number(value) { vm.model.ValBathroom_number.updateValue(value) },
 						get ValBrokers_fk() { return vm.model.ValBrokers_fk.value },
 						set ValBrokers_fk(value) { vm.model.ValBrokers_fk.updateValue(value) },
+						get ValBuildingtype() { return vm.model.ValBuildingtype.value },
+						set ValBuildingtype(value) { vm.model.ValBuildingtype.updateValue(value) },
 						get ValCity_fk() { return vm.model.ValCity_fk.value },
 						set ValCity_fk(value) { vm.model.ValCity_fk.updateValue(value) },
 						get ValDate() { return vm.model.ValDate.value },
@@ -850,6 +1201,8 @@
 						set ValSize(value) { vm.model.ValSize.updateValue(value) },
 						get ValTitle() { return vm.model.ValTitle.value },
 						set ValTitle(value) { vm.model.ValTitle.updateValue(value) },
+						get ValTopoogy() { return vm.model.ValTopoogy.value },
+						set ValTopoogy(value) { vm.model.ValTopoogy.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the PROPERTY table */

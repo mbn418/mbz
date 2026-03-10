@@ -20,6 +20,13 @@ namespace CSGenio.business
 
             StringBuilder Qresult = new StringBuilder();
             
+			// building_type
+            Qresult = new StringBuilder();
+			            Qresult.AppendLine("if {{{0}}} = \"o\" then \"Other\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"a\" then \"Apartment\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"h\" then \"House\" else");
+            Qresult.Append("\"                                              \"");
+            todasArrays.Add("building_type", Qresult.ToString());
 			// s_modpro
             Qresult = new StringBuilder();
 			            Qresult.AppendLine("if {{{0}}} = \"INDIV\" then \"Individual\" else");
@@ -60,6 +67,16 @@ namespace CSGenio.business
             Qresult = new StringBuilder();
             Qresult.Append("\"                                              \"");
             todasArrays.Add("s_tpproc", Qresult.ToString());
+			// typology
+            Qresult = new StringBuilder();
+			Qresult.AppendLine("if {{{0}}} = 1 then \"No Bedrooms\" else");
+			Qresult.AppendLine("if {{{0}}} = 2 then \"one bedroom\" else");
+			Qresult.AppendLine("if {{{0}}} = 3 then \"2 bredrooms\" else");
+			Qresult.AppendLine("if {{{0}}} = 4 then \"3 bedrooms\" else");
+			Qresult.AppendLine("if {{{0}}} = 5 then \"More\" else");
+			Qresult.AppendLine("if {{{0}}} =  then \"\" else");
+            Qresult.Append("\"                                              \"");
+            todasArrays.Add("typology", Qresult.ToString());
         }
 
         /// <summary>

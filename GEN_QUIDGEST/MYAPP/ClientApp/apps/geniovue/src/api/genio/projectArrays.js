@@ -108,6 +108,42 @@ export class GroupOption {
 
 /* eslint-enable @typescript-eslint/no-unused-vars */
 /**
+ * The building_type array.
+ */
+export class QArrayBuilding_type
+{
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	constructor(fnResources)
+	{
+		this.type = 'C'
+		this.pluralName = 'BUILDING_TYPE60076'
+		this.singularName = 'BUILDING_TYPE60076'
+
+		this.elements = [
+			new Option({
+				num: 1,
+				key: 'o',
+				resourceId: 'OTHER37293',
+				fnResources,
+			}),
+			new Option({
+				num: 2,
+				key: 'a',
+				resourceId: 'APARTMENT12665',
+				fnResources,
+			}),
+			new Option({
+				num: 3,
+				key: 'h',
+				resourceId: 'HOUSE01993',
+				fnResources,
+			}),
+		]
+
+	}
+}
+
+/**
  * The s_modpro array.
  */
 export class QArrayS_modpro
@@ -374,12 +410,68 @@ export class QArrayS_tpproc
 	}
 }
 
+/**
+ * The Typology array.
+ */
+export class QArrayTypology
+{
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	constructor(fnResources)
+	{
+		this.type = 'N'
+		this.pluralName = 'TYPOLOGY11991'
+		this.singularName = 'TYPOLOGY11991'
+
+		this.elements = [
+			new Option({
+				num: 1,
+				key: 1,
+				resourceId: 'NO_BEDROOMS09923',
+				fnResources,
+			}),
+			new Option({
+				num: 2,
+				key: 2,
+				resourceId: 'ONE_BEDROOM55017',
+				fnResources,
+			}),
+			new Option({
+				num: 3,
+				key: 3,
+				resourceId: '_2_BREDROOMS10489',
+				fnResources,
+			}),
+			new Option({
+				num: 4,
+				key: 4,
+				resourceId: '_3_BEDROOMS27305',
+				fnResources,
+			}),
+			new Option({
+				num: 5,
+				key: 5,
+				resourceId: 'MORE38452',
+				fnResources,
+			}),
+			new Option({
+				num: 6,
+				key: ,
+				resourceId: '',
+				fnResources,
+			}),
+		]
+
+	}
+}
+
 
 export default {
+	QArrayBuilding_type,
 	QArrayS_modpro,
 	QArrayS_module,
 	QArrayS_prstat,
 	QArrayS_resul,
 	QArrayS_roles,
 	QArrayS_tpproc,
+	QArrayTypology,
 }

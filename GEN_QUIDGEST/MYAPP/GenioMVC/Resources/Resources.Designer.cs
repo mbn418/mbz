@@ -414,6 +414,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "2 bredrooms"
+		/// </summary>
+		public static string _2_BREDROOMS10489 {
+			get {
+				return ResourceManager.GetString("_2_BREDROOMS10489", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Notification Messages"
 		/// </summary>
 		public static string NOTIFICATION_MESSAGE60981 {
@@ -423,11 +432,29 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "No Bedrooms"
+		/// </summary>
+		public static string NO_BEDROOMS09923 {
+			get {
+				return ResourceManager.GetString("NO_BEDROOMS09923", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Sender"
 		/// </summary>
 		public static string SENDER07671 {
 			get {
 				return ResourceManager.GetString("SENDER07671", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "TOPOOGY"
+		/// </summary>
+		public static string TOPOOGY11786 {
+			get {
+				return ResourceManager.GetString("TOPOOGY11786", resourceCulture);
 			}
 		}
 
@@ -756,6 +783,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "BUILDINGTYPE"
+		/// </summary>
+		public static string BUILDINGTYPE40152 {
+			get {
+				return ResourceManager.GetString("BUILDINGTYPE40152", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Não responde"
 		/// </summary>
 		public static string NAO_RESPONDE33275 {
@@ -909,6 +945,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Typology"
+		/// </summary>
+		public static string TYPOLOGY11991 {
+			get {
+				return ResourceManager.GetString("TYPOLOGY11991", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Global"
 		/// </summary>
 		public static string GLOBAL58588 {
@@ -999,6 +1044,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "House"
+		/// </summary>
+		public static string HOUSE01993 {
+			get {
+				return ResourceManager.GetString("HOUSE01993", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Start time"
 		/// </summary>
 		public static string START_TIME30037 {
@@ -1013,6 +1067,15 @@ namespace GenioMVC.Resources
 		public static string CANCELED_BY01167 {
 			get {
 				return ResourceManager.GetString("CANCELED_BY01167", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "one bedroom"
+		/// </summary>
+		public static string ONE_BEDROOM55017 {
+			get {
+				return ResourceManager.GetString("ONE_BEDROOM55017", resourceCulture);
 			}
 		}
 
@@ -1067,6 +1130,15 @@ namespace GenioMVC.Resources
 		public static string REAL_TIME_STATUS00476 {
 			get {
 				return ResourceManager.GetString("REAL_TIME_STATUS00476", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "3 bedrooms"
+		/// </summary>
+		public static string _3_BEDROOMS27305 {
+			get {
+				return ResourceManager.GetString("_3_BEDROOMS27305", resourceCulture);
 			}
 		}
 
@@ -1206,6 +1278,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Other"
+		/// </summary>
+		public static string OTHER37293 {
+			get {
+				return ResourceManager.GetString("OTHER37293", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Em execução"
 		/// </summary>
 		public static string EM_EXECUCAO53706 {
@@ -1269,6 +1350,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "More"
+		/// </summary>
+		public static string MORE38452 {
+			get {
+				return ResourceManager.GetString("MORE38452", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Create a website alert"
 		/// </summary>
 		public static string CREATE_A_WEBSITE_ALE02013 {
@@ -1278,11 +1368,38 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "TOPOLOGY"
+		/// </summary>
+		public static string TOPOLOGY47951 {
+			get {
+				return ResourceManager.GetString("TOPOLOGY47951", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Id"
 		/// </summary>
 		public static string ID36840 {
 			get {
 				return ResourceManager.GetString("ID36840", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "building_type"
+		/// </summary>
+		public static string BUILDING_TYPE60076 {
+			get {
+				return ResourceManager.GetString("BUILDING_TYPE60076", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Apartment"
+		/// </summary>
+		public static string APARTMENT12665 {
+			get {
+				return ResourceManager.GetString("APARTMENT12665", resourceCulture);
 			}
 		}
 

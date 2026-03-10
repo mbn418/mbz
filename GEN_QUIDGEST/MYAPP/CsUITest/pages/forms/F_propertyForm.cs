@@ -59,6 +59,26 @@ public class F_propertyForm : Form
 	public LookupControl CityCity => new LookupControl(driver, ContainerLocator, "container-F_PROPERTY__CITY__CITY");
 	public SeeMorePage CityCitySeeMorePage => new SeeMorePage(driver, "F_PROPERTY", "F_PROPERTY__CITY__CITY");
 
+	/// <summary>
+	/// BUILDINGTYPE
+	/// </summary>
+	public EnumControl PropertyBuildingtype => new EnumControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTY__BUILDINGTYPE");
+
+	/// <summary>
+	/// TOPOLOGY
+	/// </summary>
+	public RadiobuttonControl PropertyTopoogy => new RadiobuttonControl(driver, ContainerLocator, "container-F_PROPERTY__PROPERTY__TOPOOGY");
+
+	/// <summary>
+	/// Properties
+	/// </summary>
+	public ListControl PseudProperty_grid => new ListControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__PROPERTY_GRID");
+
+	/// <summary>
+	/// CONTACT
+	/// </summary>
+	public ListControl PseudContact_grid => new ListControl(driver, ContainerLocator, "#F_PROPERTY__PSEUD__CONTACT_GRID");
+
 	public F_propertyForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "F_PROPERTY", containerLocator: containerLocator) { }
 }

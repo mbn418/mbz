@@ -159,6 +159,29 @@ export default class ViewModel extends FormViewModelBase
 			ignoreFldSubmit: true,
 		}).cloneFrom(values?.TableCityCity))
 		this.stopWatchers.push(watch(() => this.TableCityCity.value, (newValue, oldValue) => this.onUpdate('city.city', this.TableCityCity, newValue, oldValue)))
+
+		this.ValBuildingtype = reactive(new modelFieldType.String({
+			id: 'ValBuildingtype',
+			originId: 'ValBuildingtype',
+			area: 'PROPERTY',
+			field: 'BUILDINGTYPE',
+			maxLength: 1,
+			arrayOptions: computed(() => new qProjArrays.QArrayBuilding_type(vm.$getResource).elements),
+			description: computed(() => this.Resources.BUILDINGTYPE40152),
+		}).cloneFrom(values?.ValBuildingtype))
+		this.stopWatchers.push(watch(() => this.ValBuildingtype.value, (newValue, oldValue) => this.onUpdate('property.buildingtype', this.ValBuildingtype, newValue, oldValue)))
+
+		this.ValTopoogy = reactive(new modelFieldType.Number({
+			id: 'ValTopoogy',
+			originId: 'ValTopoogy',
+			area: 'PROPERTY',
+			field: 'TOPOOGY',
+			maxDigits: 1,
+			decimalDigits: 0,
+			arrayOptions: computed(() => new qProjArrays.QArrayTypology(vm.$getResource).elements),
+			description: computed(() => this.Resources.TOPOOGY11786),
+		}).cloneFrom(values?.ValTopoogy))
+		this.stopWatchers.push(watch(() => this.ValTopoogy.value, (newValue, oldValue) => this.onUpdate('property.topoogy', this.ValTopoogy, newValue, oldValue)))
 	}
 
 	/**

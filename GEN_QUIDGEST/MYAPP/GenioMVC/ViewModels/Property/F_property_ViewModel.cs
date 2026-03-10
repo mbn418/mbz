@@ -75,6 +75,14 @@ namespace GenioMVC.ViewModels.Property
 		/// </summary>
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.City> TableCityCity { get; set; }
+		/// <summary>
+		/// Title: "BUILDINGTYPE" | Type: "AC"
+		/// </summary>
+		public string ValBuildingtype { get; set; }
+		/// <summary>
+		/// Title: "TOPOLOGY" | Type: "AN"
+		/// </summary>
+		public decimal ValTopoogy { get; set; }
 
 		#region Navigations
 		#endregion
@@ -214,6 +222,8 @@ namespace GenioMVC.ViewModels.Property
 				ValBathroom_number = ViewModelConversion.ToNumeric(m.ValBathroom_number);
 				ValDate = ViewModelConversion.ToDateTime(m.ValDate);
 				ValSize = ViewModelConversion.ToNumeric(m.ValSize);
+				ValBuildingtype = ViewModelConversion.ToString(m.ValBuildingtype);
+				ValTopoogy = ViewModelConversion.ToNumeric(m.ValTopoogy);
 				ValCodproperty = ViewModelConversion.ToString(m.ValCodproperty);
 			}
 			catch (Exception)
@@ -249,6 +259,8 @@ namespace GenioMVC.ViewModels.Property
 				m.ValBathroom_number = ViewModelConversion.ToNumeric(ValBathroom_number);
 				m.ValDate = ViewModelConversion.ToDateTime(ValDate);
 				m.ValSize = ViewModelConversion.ToNumeric(ValSize);
+				m.ValBuildingtype = ViewModelConversion.ToString(ValBuildingtype);
+				m.ValTopoogy = ViewModelConversion.ToNumeric(ValTopoogy);
 				m.ValCodproperty = ViewModelConversion.ToString(ValCodproperty);
 			}
 			catch (Exception)
@@ -297,6 +309,12 @@ namespace GenioMVC.ViewModels.Property
 						break;
 					case "property.size":
 						this.ValSize = ViewModelConversion.ToNumeric(_value);
+						break;
+					case "property.buildingtype":
+						this.ValBuildingtype = ViewModelConversion.ToString(_value);
+						break;
+					case "property.topoogy":
+						this.ValTopoogy = ViewModelConversion.ToNumeric(_value);
 						break;
 					case "property.codproperty":
 						this.ValCodproperty = ViewModelConversion.ToString(_value);
@@ -857,6 +875,8 @@ namespace GenioMVC.ViewModels.Property
 				"property.bathroom_number" => ViewModelConversion.ToNumeric(modelValue),
 				"property.date" => ViewModelConversion.ToDateTime(modelValue),
 				"property.size" => ViewModelConversion.ToNumeric(modelValue),
+				"property.buildingtype" => ViewModelConversion.ToString(modelValue),
+				"property.topoogy" => ViewModelConversion.ToNumeric(modelValue),
 				"property.codproperty" => ViewModelConversion.ToString(modelValue),
 				"broker.codbroker" => ViewModelConversion.ToString(modelValue),
 				"broker.name" => ViewModelConversion.ToString(modelValue),

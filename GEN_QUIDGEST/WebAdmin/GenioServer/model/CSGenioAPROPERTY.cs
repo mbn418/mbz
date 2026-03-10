@@ -139,6 +139,30 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "buildingtype", FieldType.ARRAY_TEXT);
+			Qfield.FieldDescription = "BUILDINGTYPE";
+			Qfield.FieldSize =  1;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "BUILDINGTYPE40152";
+
+			Qfield.Dupmsg = "";
+            Qfield.ArrayName = "dbo.GetValArrayCbuilding_type";
+            Qfield.ArrayClassName = "Building_type";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "topoogy", FieldType.ARRAY_NUMERIC);
+			Qfield.FieldDescription = "TOPOOGY";
+			Qfield.FieldSize =  1;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "TOPOOGY11786";
+
+			Qfield.Dupmsg = "";
+			Qfield.ArrayName = "dbo.GetValArrayNtypology";
+            Qfield.ArrayClassName = "Typology";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -392,6 +416,28 @@ namespace CSGenio.business
 			set { insertNameValueField(FldCity_fk, value); }
 		}
 
+		/// <summary>Field : "BUILDINGTYPE" Tipo: "AC" Formula:  ""</summary>
+		public static FieldRef FldBuildingtype { get { return m_fldBuildingtype; } }
+		private static FieldRef m_fldBuildingtype = new FieldRef("property", "buildingtype");
+
+		/// <summary>Field : "BUILDINGTYPE" Tipo: "AC" Formula:  ""</summary>
+		public string ValBuildingtype
+		{
+			get { return (string)returnValueField(FldBuildingtype); }
+			set { insertNameValueField(FldBuildingtype, value); }
+		}
+
+		/// <summary>Field : "TOPOOGY" Tipo: "AN" Formula:  ""</summary>
+		public static FieldRef FldTopoogy { get { return m_fldTopoogy; } }
+		private static FieldRef m_fldTopoogy = new FieldRef("property", "topoogy");
+
+		/// <summary>Field : "TOPOOGY" Tipo: "AN" Formula:  ""</summary>
+		public decimal ValTopoogy
+		{
+			get { return (decimal)returnValueField(FldTopoogy); }
+			set { insertNameValueField(FldTopoogy, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("property", "zzstate");
@@ -489,7 +535,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX PROPERTY]/
 
  
-          
+            
 
 	}
 }
