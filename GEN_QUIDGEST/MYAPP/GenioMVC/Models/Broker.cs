@@ -57,6 +57,18 @@ namespace GenioMVC.Models
 		[ShouldSerialize("Broker.ValPhone_number")]
 		public string ValPhone_number { get { return klass.ValPhone_number; } set { klass.ValPhone_number = value; } }
 
+		[DisplayName("NROFPROPETIES")]
+		/// <summary>Field : "NROFPROPETIES" Tipo: "N" Formula: SR "[PROPERTY->1]"</summary>
+		[ShouldSerialize("Broker.ValNrofpropeties")]
+		[NumericAttribute(0)]
+		public decimal? ValNrofpropeties { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValNrofpropeties, 0)); } set { klass.ValNrofpropeties = Convert.ToDecimal(value); } }
+
+		[DisplayName("SALES PROFIT")]
+		/// <summary>Field : "SALES PROFIT" Tipo: "$" Formula: SR "[PROPERTY->PRICE]"</summary>
+		[ShouldSerialize("Broker.ValSalesprofit")]
+		[CurrencyAttribute("EUR", 2)]
+		public decimal? ValSalesprofit { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSalesprofit, 2)); } set { klass.ValSalesprofit = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Broker.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

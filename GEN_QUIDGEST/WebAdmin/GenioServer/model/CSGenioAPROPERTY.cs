@@ -288,6 +288,10 @@ namespace CSGenio.business
 		{
 			// Formulas
 			//------------------------------
+			//Actualiza as seguintes somas relacionadas:
+			info.RelatedSumArgs = new List<RelatedSumArgument>();
+			info.RelatedSumArgs.Add( new RelatedSumArgument("property", "broker", "nrofpropeties", "1", '+', false));
+			info.RelatedSumArgs.Add( new RelatedSumArgument("property", "broker", "salesprofit", "price", '+', true));
 
 
 

@@ -183,6 +183,9 @@
 	<data name="CLIENT_NAME18061" xml:space="preserve">
 		<value>CLIENT_NAME</value>
 	</data>
+	<data name="NROFPROPETIES62445" xml:space="preserve">
+		<value>NROFPROPETIES</value>
+	</data>
 	<data name="ERRO38355" xml:space="preserve">
 		<value>Erro</value>
 	</data>
@@ -449,6 +452,9 @@
 	</data>
 	<data name="SUCESSO65230" xml:space="preserve">
 		<value>Sucesso</value>
+	</data>
+	<data name="SALES_PROFIT45896" xml:space="preserve">
+		<value>SALES PROFIT</value>
 	</data>
 	<data name="PROPERTY43977" xml:space="preserve">
 		<value>Property</value>

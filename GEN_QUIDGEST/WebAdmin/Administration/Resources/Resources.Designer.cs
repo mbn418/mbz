@@ -259,6 +259,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "NROFPROPETIES"
+        /// </summary>
+        public static string NROFPROPETIES62445 {
+            get {
+                return ResourceManager.GetString("NROFPROPETIES62445", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Erro"
         /// </summary>
         public static string ERRO38355 {
@@ -1056,6 +1065,15 @@ namespace Administration.Resources {
         public static string SUCESSO65230 {
             get {
                 return ResourceManager.GetString("SUCESSO65230", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "SALES PROFIT"
+        /// </summary>
+        public static string SALES_PROFIT45896 {
+            get {
+                return ResourceManager.GetString("SALES_PROFIT45896", resourceCulture);
             }
         }
 

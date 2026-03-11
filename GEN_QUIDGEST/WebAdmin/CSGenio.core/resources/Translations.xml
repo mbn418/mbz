@@ -66,6 +66,9 @@
   <msg id="CLIENT_NAME" code="CLIENT_NAME18061">
     <ENUS>CLIENT_NAME</ENUS>
   </msg>
+  <msg id="NROFPROPETIES" code="NROFPROPETIES62445">
+    <ENUS>NROFPROPETIES</ENUS>
+  </msg>
   <msg id="Erro" code="ERRO38355">
     <ENUS>Erro</ENUS>
   </msg>
@@ -332,6 +335,9 @@
   </msg>
   <msg id="Sucesso" code="SUCESSO65230">
     <ENUS>Sucesso</ENUS>
+  </msg>
+  <msg id="SALES PROFIT" code="SALES_PROFIT45896">
+    <ENUS>SALES PROFIT</ENUS>
   </msg>
   <msg id="Property" code="PROPERTY43977">
     <ENUS>Property</ENUS>
