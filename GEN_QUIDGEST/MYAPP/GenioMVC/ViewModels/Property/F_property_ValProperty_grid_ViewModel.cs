@@ -17,7 +17,7 @@ using Quidgest.Persistence.GenericQuery;
 
 namespace GenioMVC.ViewModels.Property
 {
-	public class F_property_ValProperty_grid_ViewModel : MenuListViewModel<Models.Property>
+	public class F_property_ValProperty_grid_ViewModel : MenuListViewModel<Models.Photo_album>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
@@ -27,7 +27,7 @@ namespace GenioMVC.ViewModels.Property
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public override string TableAlias => "property";
+		public override string TableAlias => "photo_album";
 
 		/// <inheritdoc/>
 		[JsonPropertyName("uuid")]
@@ -43,7 +43,7 @@ namespace GenioMVC.ViewModels.Property
 		/// The primary key field.
 		/// </summary>
 		[JsonIgnore]
-		public string ValCodproperty { get; set; }
+		public string PropertyValCodproperty { get; set; }
 
 		/// <summary>
 		/// The context of the parent.
@@ -110,7 +110,7 @@ namespace GenioMVC.ViewModels.Property
 		/// <param name="userContext">The current user request context</param>
 		public F_property_ValProperty_grid_ViewModel(UserContext userContext) : base(userContext)
 		{
-			ValCodproperty = userContext.CurrentNavigation.CurrentLevel.GetEntry("property")?.ToString();
+			PropertyValCodproperty = userContext.CurrentNavigation.CurrentLevel.GetEntry("property")?.ToString();
 		}
 
 		/// <summary>
@@ -132,13 +132,13 @@ namespace GenioMVC.ViewModels.Property
 			];
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAproperty> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAphoto_album> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 			LoadToExport(out listing, out conditions, out columns, tableConfig, requestValues, ajaxRequest);
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAproperty> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAphoto_album> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			listing = null;
 			conditions = null;
@@ -188,31 +188,36 @@ namespace GenioMVC.ViewModels.Property
 			// Form field filters
 			crs.SubSets.Add(ProcessFieldFilters(tableConfig.GlobalFilters));
 
+			if (this.PropertyValCodproperty != null)
+				crs.Equal(CSGenioAphoto_album.FldCodpropetry, this.PropertyValCodproperty);
+			else
+				tableReload = false;
+
 
 			crs.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Property.AddEPH<CSGenioAproperty>(ref u, crs, "IBL_F_PROPERTY__PSEUD__PROPERTY_GRID");
+				crs = Models.Photo_album.AddEPH<CSGenioAphoto_album>(ref u, crs, "IBL_F_PROPERTY__PSEUD__PROPERTY_GRID");
 
 				// Export only records with ZZState == 0
-				crs.Equal(CSGenioAproperty.FldZzstate, 0);
+				crs.Equal(CSGenioAphoto_album.FldZzstate, 0);
 
 				return crs;
 			}
 
 			// Limitation by Zzstate
-			if (!Navigation.checkFormMode("PROPERTY", FormMode.New)) // TODO: Check in Duplicate mode
-				crs = extendWithZzstateCondition(crs, CSGenioAproperty.FldZzstate, null);
+			if (!Navigation.checkFormMode("PHOTO_ALBUM", FormMode.New)) // TODO: Check in Duplicate mode
+				crs = extendWithZzstateCondition(crs, CSGenioAphoto_album.FldZzstate, null);
 
 
 			if (tableReload)
 			{
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_property");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_property");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_photo_album");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_photo_album");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Property.AddEPH<CSGenioAproperty>(ref u, null, "IBL_F_PROPERTY__PSEUD__PROPERTY_GRID"));
+					crs.Equals(Models.Photo_album.AddEPH<CSGenioAphoto_album>(ref u, null, "IBL_F_PROPERTY__PSEUD__PROPERTY_GRID"));
 			}
 
 			return crs;
@@ -237,7 +242,7 @@ namespace GenioMVC.ViewModels.Property
 		/// <param name="conditions">The conditions.</param>
 		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAproperty> listing = null;
+			ListingMVC<CSGenioAphoto_album> listing = null;
 
 			Load(numberListItems, requestValues, ajaxRequest, false, ref listing, ref conditions);
 		}
@@ -251,7 +256,7 @@ namespace GenioMVC.ViewModels.Property
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAproperty> Qlisting, ref CriteriaSet conditions)
+		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAphoto_album> Qlisting, ref CriteriaSet conditions)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 
@@ -270,7 +275,7 @@ namespace GenioMVC.ViewModels.Property
 		/// <param name="conditions">The conditions.</param>
 		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAproperty> listing = null;
+			ListingMVC<CSGenioAphoto_album> listing = null;
 
 			Load(tableConfig, requestValues, ajaxRequest, isToExport, ref listing, ref conditions);
 		}
@@ -284,7 +289,7 @@ namespace GenioMVC.ViewModels.Property
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAproperty> Qlisting, ref CriteriaSet conditions)
+		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAphoto_album> Qlisting, ref CriteriaSet conditions)
 		{
 			User u = m_userContext.User;
 			Menu = new TablePartial<F_property_ValProperty_grid_RowViewModel>();
@@ -303,10 +308,10 @@ namespace GenioMVC.ViewModels.Property
 			if (pageNumber < 1)
 				pageNumber = 1;
 
-			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "property", allSortOrders);
+			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "photo_album", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAproperty.FldCodproperty, CSGenioAproperty.FldZzstate, CSGenioAproperty.FldTitle, CSGenioAproperty.FldPhoto };
+			FieldRef[] fields = new FieldRef[] { CSGenioAphoto_album.FldCodphoto_album, CSGenioAphoto_album.FldZzstate, CSGenioAphoto_album.FldCodpropetry, CSGenioAproperty.FldCodproperty, CSGenioAproperty.FldTitle, CSGenioAproperty.FldPhoto };
 
 
 			// Totalizers
@@ -329,7 +334,7 @@ namespace GenioMVC.ViewModels.Property
 			{
 				Limit limit = new Limit();
 				limit.TipoLimite = LimitType.EPH;
-				CSGenioAproperty model_limit_area = new CSGenioAproperty(m_userContext.User);
+				CSGenioAphoto_album model_limit_area = new CSGenioAphoto_album(m_userContext.User);
 				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "IBL_F_PROPERTY__PSEUD__PROPERTY_GRID");
 				if (area_EPH_limits.Count > 0)
 					this.TableLimits.AddRange(area_EPH_limits);
@@ -355,7 +360,7 @@ namespace GenioMVC.ViewModels.Property
 				var exportColumns = GetExportColumns(tableConfig.ColumnConfigurations);
 				var exportFieldRefs = exportColumns.Select(eCol => eCol.Field).Where(fldRef => fldRef != null).ToArray();
 
-				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAproperty>(m_userContext, false, ref f_property__pseud__property_gridConds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_F_PROPERTY__PSEUD__PROPERTY_GRID", true, firstVisibleColumn: firstVisibleColumn);
+				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAphoto_album>(m_userContext, false, ref f_property__pseud__property_gridConds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_F_PROPERTY__PSEUD__PROPERTY_GRID", true, firstVisibleColumn: firstVisibleColumn);
 
 // USE /[MANUAL TRA OVERRQLSTEXP F_PROPERTY_PSEUDPROPERTY_GRID]/
 
@@ -366,18 +371,18 @@ namespace GenioMVC.ViewModels.Property
 			{
 // USE /[MANUAL TRA OVERRQLIST F_PROPERTY_PSEUDPROPERTY_GRID]/
 
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_property");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_property");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_photo_album");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_photo_album");
 				CriteriaSet m_PagingPosEPHs = null;
 
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 				{
-					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAproperty.GetInformation(), QMVC_POS_RECORD, sorts, f_property__pseud__property_gridConds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAphoto_album.GetInformation(), QMVC_POS_RECORD, sorts, f_property__pseud__property_gridConds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 					if (m_iCurPag != -1)
 						pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 				}
 
-				ListingMVC<CSGenioAproperty> listing = Models.ModelBase.Where<CSGenioAproperty>(m_userContext, distinct, f_property__pseud__property_gridConds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_F_PROPERTY__PSEUD__PROPERTY_GRID", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+				ListingMVC<CSGenioAphoto_album> listing = Models.ModelBase.Where<CSGenioAphoto_album>(m_userContext, distinct, f_property__pseud__property_gridConds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_F_PROPERTY__PSEUD__PROPERTY_GRID", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 				if (listing.CurrentPage > 0)
 					pageNumber = listing.CurrentPage;
@@ -415,7 +420,7 @@ namespace GenioMVC.ViewModels.Property
 			LoadUserTableConfigNameProperties();
 		}
 
-		private List<F_property_ValProperty_grid_RowViewModel> MapF_property_ValProperty_grid(ListingMVC<CSGenioAproperty> Qlisting)
+		private List<F_property_ValProperty_grid_RowViewModel> MapF_property_ValProperty_grid(ListingMVC<CSGenioAphoto_album> Qlisting)
 		{
 			List<F_property_ValProperty_grid_RowViewModel> Elements = [];
 			int i = 0;
@@ -435,11 +440,11 @@ namespace GenioMVC.ViewModels.Property
 		}
 
 		/// <summary>
-		/// Maps a single CSGenioAproperty row
+		/// Maps a single CSGenioAphoto_album row
 		/// to a F_property_ValProperty_grid_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private F_property_ValProperty_grid_RowViewModel MapF_property_ValProperty_grid(CSGenioAproperty row)
+		private F_property_ValProperty_grid_RowViewModel MapF_property_ValProperty_grid(CSGenioAphoto_album row)
 		{
 			var model = new F_property_ValProperty_grid_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
@@ -449,14 +454,19 @@ namespace GenioMVC.ViewModels.Property
 			{
 				switch (Qfield.Area)
 				{
-					case "property":
+					case "photo_album":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
+					case "property":
+						model.Property.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
 			}
 
 			model.InitRowData();
+
+			// Use the parent context, so the formulas are calculated with the current values.
+			model.Property = ParentCtx as Models.Property;
 
 			SetTicketToImageFields(model);
 			return model;
@@ -477,19 +487,19 @@ namespace GenioMVC.ViewModels.Property
 		/// Sets the document field values to objects.
 		/// </summary>
 		/// <param name="listing">The rows</param>
-		private void SetDocumentFields(ListingMVC<CSGenioAproperty> listing)
+		private void SetDocumentFields(ListingMVC<CSGenioAphoto_album> listing)
 		{
 		}
 
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.Property m)
+		public override void MapFromModel(Models.Photo_album m)
 		{
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.Property m)
+		public override void MapToModel(Models.Photo_album m)
 		{
 		}
 
@@ -503,19 +513,19 @@ namespace GenioMVC.ViewModels.Property
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Property", "Property.ValCodproperty", "Property.ValZzstate", "Property.ValTitle", "Property.ValPhoto", "Property.ValBrokers_fk", "Property.ValCity_fk"
+			"Photo_album", "Photo_album.ValCodphoto_album", "Photo_album.ValZzstate", "Property", "Property.ValTitle", "Property.ValPhoto", "Photo_album.ValCodpropetry"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValTitle", CSGenioAproperty.FldTitle, typeof(string), defaultSearch : true),
+			new TableSearchColumn("Property_ValTitle", CSGenioAproperty.FldTitle, typeof(string), defaultSearch : true),
 		];
-		protected void SetTicketToImageFields(Models.Property row)
+		protected void SetTicketToImageFields(Models.Photo_album row)
 		{
 			if (row == null)
 				return;
 
-			row.ValPhotoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPROPERTY, CSGenioAproperty.FldPhoto.Field, null, row.ValCodproperty);
+			row.Property.ValPhotoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaPROPERTY, CSGenioAproperty.FldPhoto.Field, null, row.Property.ValCodproperty);
 		}
 	}
 }

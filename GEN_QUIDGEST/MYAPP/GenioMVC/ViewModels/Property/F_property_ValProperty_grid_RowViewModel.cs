@@ -6,7 +6,7 @@ using GenioMVC.Models.Navigation;
 
 namespace GenioMVC.ViewModels.Property;
 
-public class F_property_ValProperty_grid_RowViewModel : Models.Property
+public class F_property_ValProperty_grid_RowViewModel : Models.Photo_album
 {
 	#region Constructors
 
@@ -15,7 +15,7 @@ public class F_property_ValProperty_grid_RowViewModel : Models.Property
 		InitRowProperties();
 	}
 
-	public F_property_ValProperty_grid_RowViewModel(UserContext userContext, CSGenioAproperty val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public F_property_ValProperty_grid_RowViewModel(UserContext userContext, CSGenioAphoto_album val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -58,6 +58,10 @@ public class F_property_ValProperty_grid_RowViewModel : Models.Property
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
+
+		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
+		{
+		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{

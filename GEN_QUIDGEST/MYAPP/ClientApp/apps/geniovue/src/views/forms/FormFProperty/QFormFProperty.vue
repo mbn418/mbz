@@ -917,17 +917,18 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValTitle',
+								name: 'Property.ValTitle',
 								area: 'PROPERTY',
 								field: 'TITLE',
 								label: computed(() => this.Resources.TITLE11628),
 								dataLength: 80,
 								scrollData: 30,
 								export: 1,
+								pkColumn: 'ValCodproperty',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
 								order: 2,
-								name: 'ValPhoto',
+								name: 'Property.ValPhoto',
 								area: 'PROPERTY',
 								field: 'PHOTO',
 								label: computed(() => this.Resources.PHOTO38852),
@@ -936,14 +937,15 @@
 								sortable: false,
 								searchable: false,
 								export: 1,
+								pkColumn: 'ValCodproperty',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'ValProperty_grid',
 							serverMode: true,
-							pkColumn: 'ValCodproperty',
-							tableAlias: 'PROPERTY',
-							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
+							pkColumn: 'ValCodphoto_album',
+							tableAlias: 'PHOTO_ALBUM',
+							tableNamePlural: computed(() => this.Resources.PHOTO_ALBUM49258),
 							viewManagement: '',
 							showLimitsInfo: true,
 							tableTitle: computed(() => this.Resources.PROPERTIES34868),
@@ -955,6 +957,91 @@
 							},
 							allowColumnFilters: false,
 							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'PHOTO',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'PHOTO',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'PHOTO',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'PHOTO',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'PHOTO',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
 							generalCustomActions: [
 							],
 							groupActions: [
@@ -964,17 +1051,33 @@
 							MCActions: [
 							],
 							rowClickAction: {
+								id: 'RCA__PHOTO',
+								name: '_PHOTO',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'PHOTO',
+									mode: 'SHOW',
+									isControlled: true
+								}
 							},
 							formsDefinition: {
+								'PHOTO': {
+									fnKeySelector: (row) => row.Fields.ValCodphoto_album,
+									isPopup: false
+								},
 							},
-							defaultSearchColumnName: 'ValTitle',
-							defaultSearchColumnNameOriginal: 'ValTitle',
+							defaultSearchColumnName: 'Property.ValTitle',
+							defaultSearchColumnNameOriginal: 'Property.ValTitle',
 							defaultColumnSorting: {
 								columnName: '',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-CITY', 'changed-BROKER', 'changed-PROPERTY'],
+						globalEvents: ['changed-PROPERTY', 'changed-PHOTO_ALBUM'],
 						uuid: 'F_property_ValProperty_grid',
 						allSelectedRows: 'false',
 						controlLimits: [

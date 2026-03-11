@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_511]/ -->
+					<!-- USE /[MANUAL TRA CUSTOM_TABLE TRA_Menu_41]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuTRA_511ViewModel.js'
+	import MenuViewModel from './QMenuTRA_41ViewModel.js'
 
-	const requiredTextResources = ['QMenuTRA_511', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuTRA_41', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_511]/
+// USE /[MANUAL TRA FORM_INCLUDEJS TRA_MENU_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuTra511',
+		name: 'QMenuTra41',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_511', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuTRA_41', false),
 
 				interfaceMetadata: {
-					id: 'QMenuTRA_511', // Used for resources
+					id: 'QMenuTRA_41', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '511',
+					id: '41',
 					isMenuList: true,
-					designation: computed(() => this.Resources.PROPERTIES34868),
-					acronym: 'TRA_511',
-					name: 'PROPERTY',
-					route: 'menu-TRA_511',
-					order: '511',
-					controller: 'PROPERTY',
-					action: 'TRA_Menu_511',
+					designation: computed(() => this.Resources.BROKER37082),
+					acronym: 'TRA_41',
+					name: 'CITY',
+					route: 'menu-TRA_41',
+					order: '41',
+					controller: 'BROKER',
+					action: 'TRA_Menu_41',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'TRA_Menu_511',
-						controller: 'PROPERTY',
-						action: 'TRA_Menu_511',
+						id: 'TRA_Menu_41',
+						controller: 'BROKER',
+						action: 'TRA_Menu_41',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -146,77 +146,10 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.ArrayColumn({
-								order: 1,
-								name: 'ValTopoogy',
-								area: 'PROPERTY',
-								field: 'TOPOOGY',
-								label: computed(() => this.Resources.TOPOOGY11786),
-								scrollData: 1,
-								maxDigits: 1,
-								decimalPlaces: 0,
-								export: 1,
-								array: computed(() => new qProjArrays.QArrayTypology(vm.$getResource).elements),
-								arrayType: qProjArrays.QArrayTypology.type,
-								arrayDisplayMode: 'D',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.NumericColumn({
-								order: 2,
-								name: 'ValSize',
-								area: 'PROPERTY',
-								field: 'SIZE',
-								scrollData: 5,
-								maxDigits: 5,
-								decimalPlaces: 0,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 3,
-								name: 'ValTitle',
-								area: 'PROPERTY',
-								field: 'TITLE',
-								label: computed(() => this.Resources.TITLE11628),
-								dataLength: 80,
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
-								name: 'City.ValCity',
-								area: 'CITY',
-								field: 'CITY',
-								label: computed(() => this.Resources.CITY35974),
-								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-								pkColumn: 'ValCodcity',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 5,
-								name: 'Broker.ValName',
-								area: 'BROKER',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-								pkColumn: 'ValCodbroker',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.NumericColumn({
-								order: 6,
-								name: 'ValBathroom_number',
-								area: 'PROPERTY',
-								field: 'BATHROOM_NUMBER',
-								label: computed(() => this.Resources.BATHROOM_NUMBER01832),
-								scrollData: 2,
-								maxDigits: 2,
-								decimalPlaces: 0,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
-								order: 7,
+								order: 1,
 								name: 'ValPhoto',
-								area: 'PROPERTY',
+								area: 'BROKER',
 								field: 'PHOTO',
 								label: computed(() => this.Resources.PHOTO38852),
 								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO38852)),
@@ -226,49 +159,55 @@
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.DateColumn({
-								order: 8,
-								name: 'ValDate',
-								area: 'PROPERTY',
-								field: 'DATE',
-								label: computed(() => this.Resources.DAT56009),
+								order: 2,
+								name: 'ValBrithdate',
+								area: 'BROKER',
+								field: 'BRITHDATE',
+								label: computed(() => this.Resources.BIRTHDAY30236),
 								scrollData: 8,
 								dateTimeType: 'date',
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ArrayColumn({
-								order: 9,
-								name: 'ValBuildingtype',
-								area: 'PROPERTY',
-								field: 'BUILDINGTYPE',
-								label: computed(() => this.Resources.BUILDINGTYPE40152),
-								dataLength: 1,
-								scrollData: 1,
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'ValPhone_number',
+								area: 'BROKER',
+								field: 'PHONE_NUMBER',
+								label: computed(() => this.Resources.PHONE_NUMBER54560),
+								dataLength: 50,
+								scrollData: 30,
 								export: 1,
-								array: computed(() => new qProjArrays.QArrayBuilding_type(vm.$getResource).elements),
-								arrayType: qProjArrays.QArrayBuilding_type.type,
-								arrayDisplayMode: 'D',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.CurrencyColumn({
-								order: 10,
-								name: 'ValPrice',
-								area: 'PROPERTY',
-								field: 'PRICE',
-								label: computed(() => this.Resources.PRICE06900),
-								scrollData: 15,
-								maxDigits: 12,
-								decimalPlaces: 2,
+							new listColumnTypes.TextColumn({
+								order: 4,
+								name: 'ValName',
+								area: 'BROKER',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 5,
+								name: 'ValEmail',
+								area: 'BROKER',
+								field: 'EMAIL',
+								label: computed(() => this.Resources.EMAIL25170),
+								dataLength: 250,
+								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'TRA_Menu_511',
+							name: 'TRA_Menu_41',
 							serverMode: true,
-							pkColumn: 'ValCodproperty',
-							tableAlias: 'PROPERTY',
-							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
+							pkColumn: 'ValCodbroker',
+							tableAlias: 'BROKER',
+							tableNamePlural: computed(() => this.Resources.BROKER37082),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.PROPERTIES34868),
+							tableTitle: computed(() => this.Resources.BROKER37082),
 							showAlternatePagination: true,
 							permissions: {
 								canView: false,
@@ -291,32 +230,33 @@
 							MCActions: [
 							],
 							rowClickAction: {
+								id: 'RCA_TRA_411',
+								name: 'menu-TRA_411',
+								isVisible: true,
+								params: {
+									isRoute: true,
+									limits: [
+										{
+											identifier: 'broker',
+											fnValueSelector: (row) => row.ValCodbroker
+										},
+									],
+									action: vm.openMenuAction, type: 'menu', menuName: 'TRA_411'
+								}
 							},
 							formsDefinition: {
 							},
-							allowFileExport: true,
-							allowFileImport: true,
-							defaultSearchColumnName: 'ValTitle',
-							defaultSearchColumnNameOriginal: 'ValTitle',
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: 'ValTitle',
+								columnName: '',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-CITY', 'changed-BROKER', 'changed-PROPERTY'],
-						uuid: 'c1c8fa01-8256-4245-9d7a-77197d5d7efb',
+						globalEvents: ['changed-BROKER'],
+						uuid: '9638b21d-f1c8-4f9f-9cf2-dfaa838056b6',
 						allSelectedRows: 'false',
 						headerLevel: 1,
-						/** Menu limits */
-						controlLimits: [
-							/** DB */
-							{
-								identifier: 'broker',
-								dependencyEvents: [],
-								dependencyField: '',
-								fnValueSelector: () => vm.$route.params['broker'],
-							},
-						],
 						isActiveControl: computed(() => this.isActiveMenu)
 					}, this),
 				}
@@ -340,7 +280,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_511]/
+// USE /[MANUAL TRA FORM_CODEJS TRA_MENU_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -348,18 +288,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_511]/
+// USE /[MANUAL TRA COMPONENT_BEFORE_UNMOUNT TRA_MENU_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA FUNCTIONS_JS TRA_511]/
+// USE /[MANUAL TRA FUNCTIONS_JS TRA_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_511]/
+// USE /[MANUAL TRA LISTING_CODEJS TRA_MENU_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}
