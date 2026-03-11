@@ -898,6 +898,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "sold date"
+        /// </summary>
+        public static string SOLD_DATE50102 {
+            get {
+                return ResourceManager.GetString("SOLD_DATE50102", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Finished"
         /// </summary>
         public static string FINISHED26993 {
@@ -1560,6 +1569,15 @@ namespace Administration.Resources {
         public static string NEW_MENU31759 {
             get {
                 return ResourceManager.GetString("NEW_MENU31759", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "last sold"
+        /// </summary>
+        public static string LAST_SOLD05994 {
+            get {
+                return ResourceManager.GetString("LAST_SOLD05994", resourceCulture);
             }
         }
 

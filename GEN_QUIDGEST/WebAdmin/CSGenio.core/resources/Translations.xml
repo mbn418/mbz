@@ -279,6 +279,9 @@
   <msg id="Async process attachments" code="ASYNC_PROCESS_ATTACH04785">
     <ENUS>Async process attachments</ENUS>
   </msg>
+  <msg id="sold date" code="SOLD_DATE50102">
+    <ENUS>sold date</ENUS>
+  </msg>
   <msg id="Finished" code="FINISHED26993">
     <ENUS>Finished</ENUS>
   </msg>
@@ -500,6 +503,9 @@
   </msg>
   <msg id="New Menu" code="NEW_MENU31759">
     <ENUS>New Menu</ENUS>
+  </msg>
+  <msg id="last sold" code="LAST_SOLD05994">
+    <ENUS>last sold</ENUS>
   </msg>
   <msg id="DATE" code="DATE13470">
     <ENUS>DATE</ENUS>

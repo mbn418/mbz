@@ -163,6 +163,13 @@ namespace GenioMVC.Models
 		[NumericAttribute(0)]
 		public decimal? ValSold { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSold, 0)); } set { klass.ValSold = Convert.ToDecimal(value); } }
 
+		[DisplayName("sold date")]
+		/// <summary>Field : "sold date" Tipo: "D" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValSolddate")]
+		[DataType(DataType.Date)]
+		[DateAttribute("D")]
+		public DateTime? ValSolddate { get { return klass.ValSolddate; } set { klass.ValSolddate = value ?? DateTime.MinValue; } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Property.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

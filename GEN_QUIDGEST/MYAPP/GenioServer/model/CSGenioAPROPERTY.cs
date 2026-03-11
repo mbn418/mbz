@@ -244,6 +244,22 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "solddate", FieldType.DATE);
+			Qfield.FieldDescription = "sold date";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "SOLD_DATE50102";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"sold"}, new int[] {0}, "property", "codproperty"));
+			Qfield.ShowWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return ((decimal)args[0])==1;
+			});
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getToday);
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -295,8 +311,23 @@ namespace CSGenio.business
 
 
 
+			//Actualiza as seguintes rotinas de ultimo Qvalue:
+			info.LastValueArgs = new List<LastValueArgument>();
+			info.LastValueArgs.Add( new LastValueArgument("broker",
+				new string [] {"lastsold"},
+				new string [] {"solddate"},
+				"id",
+				null,
+
+				null, false));
+
+
 			info.InternalOperationFields = new string[] {
 			 "buildingage"
+			};
+
+			info.DefaultValues = new string[] {
+			 "solddate"
 			};
 
 			info.SequentialDefaultValues = new string[] {
@@ -622,6 +653,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldSold, value); }
 		}
 
+		/// <summary>Field : "sold date" Tipo: "D" Formula:  ""</summary>
+		public static FieldRef FldSolddate { get { return m_fldSolddate; } }
+		private static FieldRef m_fldSolddate = new FieldRef("property", "solddate");
+
+		/// <summary>Field : "sold date" Tipo: "D" Formula:  ""</summary>
+		public DateTime ValSolddate
+		{
+			get { return (DateTime)returnValueField(FldSolddate); }
+			set { insertNameValueField(FldSolddate, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("property", "zzstate");
@@ -719,7 +761,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX PROPERTY]/
 
  
-                   
+                    
 
 	}
 }
