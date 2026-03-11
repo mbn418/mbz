@@ -91,6 +91,7 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "EMAIL25170";
 
 			Qfield.Dupmsg = "";
+			Qfield.DefaultValue = new DefaultValue("@agency.com");
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -143,6 +144,10 @@ namespace CSGenio.business
 			//------------------------------
 
 
+
+			info.DefaultValues = new string[] {
+			 "email"
+			};
 
 
 

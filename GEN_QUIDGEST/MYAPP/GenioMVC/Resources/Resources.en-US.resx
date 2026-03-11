@@ -186,8 +186,14 @@
 	<data name="ERRO38355" xml:space="preserve">
 		<value>Erro</value>
 	</data>
+	<data name="FLOOR_NUMBER61665" xml:space="preserve">
+		<value>FLOOR NUMBER</value>
+	</data>
 	<data name="PASSWORD_TYPE03035" xml:space="preserve">
 		<value>Password type</value>
+	</data>
+	<data name="FEILDDESCRIPTION37400" xml:space="preserve">
+		<value>FEILDDESCRIPTION</value>
 	</data>
 	<data name="PHONE_NUMBER54560" xml:space="preserve">
 		<value>PHONE_NUMBER</value>
@@ -222,11 +228,17 @@
 	<data name="LAST_UPDATE11909" xml:space="preserve">
 		<value>Last update</value>
 	</data>
+	<data name="ID48520" xml:space="preserve">
+		<value>ID</value>
+	</data>
 	<data name="ESTADOS_DO_PROCESSO59118" xml:space="preserve">
 		<value>Estados do processo</value>
 	</data>
 	<data name="ASYNC_PROCESS_ARGUME19111" xml:space="preserve">
 		<value>Async process argument</value>
+	</data>
+	<data name="ALL38603" xml:space="preserve">
+		<value>All</value>
 	</data>
 	<data name="CERTIFIED_SERIES_NUM14349" xml:space="preserve">
 		<value>Certified Series Number</value>
@@ -270,11 +282,17 @@
 	<data name="CHANGED_ON19727" xml:space="preserve">
 		<value>Changed on</value>
 	</data>
+	<data name="GROUND_SIZE31027" xml:space="preserve">
+		<value>GROUND SIZE</value>
+	</data>
 	<data name="AVISO03237" xml:space="preserve">
 		<value>Aviso</value>
 	</data>
 	<data name="LOGBOOK00124" xml:space="preserve">
 		<value>Logbook</value>
+	</data>
+	<data name="BUILDING_AGE20720" xml:space="preserve">
+		<value>BUILDING AGE</value>
 	</data>
 	<data name="PHONE_NUMBER20774" xml:space="preserve">
 		<value>Phone number</value>
@@ -386,6 +404,9 @@
 	</data>
 	<data name="LEVEL06184" xml:space="preserve">
 		<value>Level</value>
+	</data>
+	<data name="DATE_OF_CONSTRUCTION18871" xml:space="preserve">
+		<value>DATE OF CONSTRUCTION</value>
 	</data>
 	<data name="MAIN_INFO53406" xml:space="preserve">
 		<value>Main info</value>
@@ -528,6 +549,9 @@
 	<data name="NOTIFICATION_EMAIL_S62518" xml:space="preserve">
 		<value>Notification Email Signature</value>
 	</data>
+	<data name="YOU_CANT_SAVE_A_PROP20949" xml:space="preserve">
+		<value>You cant save a property without a price</value>
+	</data>
 	<data name="IMAGE65174" xml:space="preserve">
 		<value>Image</value>
 	</data>
@@ -551,6 +575,12 @@
 	</data>
 	<data name="HOST49573" xml:space="preserve">
 		<value>Host</value>
+	</data>
+	<data name="APARTMENT32595" xml:space="preserve">
+		<value>apartment</value>
+	</data>
+	<data name="SOLD56700" xml:space="preserve">
+		<value>sold</value>
 	</data>
 	<data name="CREATED_ON00051" xml:space="preserve">
 		<value>Created on</value>

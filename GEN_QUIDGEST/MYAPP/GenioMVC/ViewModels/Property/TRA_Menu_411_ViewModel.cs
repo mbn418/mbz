@@ -200,6 +200,12 @@ namespace GenioMVC.ViewModels.Property
 				new Exports.QColumn(CSGenioAproperty.FldSize, FieldType.NUMERIC, String.Empty, 5, 0, true),
 				new Exports.QColumn(CSGenioAproperty.FldBuildingtype, FieldType.ARRAY_TEXT, Resources.Resources.BUILDINGTYPE40152, 1, 0, true, "building_type"),
 				new Exports.QColumn(CSGenioAproperty.FldTopoogy, FieldType.ARRAY_NUMERIC, Resources.Resources.TOPOOGY11786, 1, 0, true, "Typology"),
+				new Exports.QColumn(CSGenioAproperty.FldId, FieldType.NUMERIC, Resources.Resources.ID48520, 10, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldDateofconstruction, FieldType.DATE, Resources.Resources.DATE_OF_CONSTRUCTION18871, 8, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldGroundsize, FieldType.NUMERIC, Resources.Resources.GROUND_SIZE31027, 6, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldFloornumber, FieldType.NUMERIC, Resources.Resources.FLOOR_NUMBER61665, 3, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldFeilddescription, FieldType.TEXT, Resources.Resources.FEILDDESCRIPTION37400, 50, 0, true),
+				new Exports.QColumn(CSGenioAproperty.FldSold, FieldType.NUMERIC, Resources.Resources.SOLD56700, 5, 0, true),
 				new Exports.QColumn(CSGenioAcity.FldCity, FieldType.TEXT, Resources.Resources.CITY35974, 30, 0, true),
 				new Exports.QColumn(CSGenioAbroker.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
 			};

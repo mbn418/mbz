@@ -121,6 +121,48 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public SelectList ArrayValtopoogy { get { return new SelectList(CSGenio.business.ArrayTypology.GetDictionary(), "Key", "Value", ValTopoogy); } set { ValTopoogy = Convert.ToDecimal(value.SelectedValue); } }
 
+		[DisplayName("ID")]
+		/// <summary>Field : "ID" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValId")]
+		[NumericAttribute(0)]
+		public decimal? ValId { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValId, 0)); } set { klass.ValId = Convert.ToDecimal(value); } }
+
+		[DisplayName("BUILDING AGE")]
+		/// <summary>Field : "BUILDING AGE" Tipo: "N" Formula: + "Year([Today]) - Year([PROPERTY->DATEOFCONSTRUCTION])"</summary>
+		[ShouldSerialize("Property.ValBuildingage")]
+		[NumericAttribute(0)]
+		public decimal? ValBuildingage { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValBuildingage, 0)); } set { klass.ValBuildingage = Convert.ToDecimal(value); } }
+
+		[DisplayName("DATE OF CONSTRUCTION")]
+		/// <summary>Field : "DATE OF CONSTRUCTION" Tipo: "D" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValDateofconstruction")]
+		[DataType(DataType.Date)]
+		[DateAttribute("D")]
+		public DateTime? ValDateofconstruction { get { return klass.ValDateofconstruction; } set { klass.ValDateofconstruction = value ?? DateTime.MinValue; } }
+
+		[DisplayName("GROUND SIZE")]
+		/// <summary>Field : "GROUND SIZE" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValGroundsize")]
+		[NumericAttribute(0)]
+		public decimal? ValGroundsize { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValGroundsize, 0)); } set { klass.ValGroundsize = Convert.ToDecimal(value); } }
+
+		[DisplayName("FLOOR NUMBER")]
+		/// <summary>Field : "FLOOR NUMBER" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValFloornumber")]
+		[NumericAttribute(0)]
+		public decimal? ValFloornumber { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValFloornumber, 0)); } set { klass.ValFloornumber = Convert.ToDecimal(value); } }
+
+		[DisplayName("FEILDDESCRIPTION")]
+		/// <summary>Field : "FEILDDESCRIPTION" Tipo: "C" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValFeilddescription")]
+		public string ValFeilddescription { get { return klass.ValFeilddescription; } set { klass.ValFeilddescription = value; } }
+
+		[DisplayName("sold")]
+		/// <summary>Field : "sold" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Property.ValSold")]
+		[NumericAttribute(0)]
+		public decimal? ValSold { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSold, 0)); } set { klass.ValSold = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Property.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

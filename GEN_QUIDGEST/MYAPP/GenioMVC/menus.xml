@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-16"?>
 <ArrayOfMenuEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <MenuEntry TYPE="ITEM" DESC="MY_APPLICATION56216" ID="TRA" IMG="" IMGVUE="" LVL="0" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false">
-    <MENU TYPE="ITEM" DESC="BROKER37082" SIGLA="" ID="1" HELPTITLE="" IMG="~/Content/img/brokeer.jpg?v=18" IMGVUE="brokeer.jpg?v=18" FNT="" SVG="" LVL="1" PREVIEW="false" SEPARATES="true" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1" DEFAULTACTION="">
+    <MENU TYPE="ITEM" DESC="BROKER37082" SIGLA="" ID="1" HELPTITLE="" IMG="~/Content/img/brokeer.jpg?v=19" IMGVUE="brokeer.jpg?v=19" FNT="" SVG="" LVL="1" PREVIEW="false" SEPARATES="true" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1" DEFAULTACTION="">
       <ACCESS>99</ACCESS>
       <MENU TYPE="ITEM" DESC="BROKER37082" ID="11" PRTID="1" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="TRA_Menu_11" ACTVUE="menu-TRA_11" CONT="BROKER" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="11">
         <MENU TYPE="ITEM" ID="111" PRTID="11" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="111" />
@@ -21,6 +21,10 @@
       <MENU TYPE="ITEM" DESC="BROKER37082" ID="41" PRTID="4" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="TRA_Menu_41" ACTVUE="menu-TRA_41" CONT="BROKER" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="41">
         <MENU TYPE="ITEM" DESC="PROPERTIES34868" ID="411" PRTID="41" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="TRA_Menu_411" ACTVUE="menu-TRA_411" CONT="PROPERTY" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="411" />
       </MENU>
+    </MENU>
+    <MENU TYPE="ITEM" DESC="SOLD56700" SIGLA="" ID="5" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="5" DEFAULTACTION="">
+      <ACCESS>1</ACCESS>
+      <MENU TYPE="ITEM" DESC="PROPERTIES34868" ID="51" PRTID="5" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="TRA_Menu_511" ACTVUE="menu-TRA_511" CONT="PROPERTY" FILTERS="seleoComCondies" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="51" />
     </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>

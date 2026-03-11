@@ -229,7 +229,11 @@ namespace GenioMVC.ViewModels.Contact
 				m.ValClient_name = ViewModelConversion.ToString(ValClient_name);
 				m.ValEmail = ViewModelConversion.ToString(ValEmail);
 				m.ValPhone_number = ViewModelConversion.ToNumeric(ValPhone_number);
-				m.ValDescription = ViewModelConversion.ToString(ValDescription);
+				// Block When condition(s)
+				if (HasDisabledUserValuesSecurity || !(Logical)((((decimal)m.ValPhone_number) == "")))
+				{
+					m.ValDescription = ViewModelConversion.ToString(ValDescription);
+				}
 				m.ValCodcontact = ViewModelConversion.ToString(ValCodcontact);
 			}
 			catch (Exception)

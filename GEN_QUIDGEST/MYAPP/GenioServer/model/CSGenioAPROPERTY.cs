@@ -163,6 +163,87 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "id", FieldType.NUMERIC);
+			Qfield.FieldDescription = "ID";
+			Qfield.FieldSize =  10;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 10;
+			Qfield.CavDesignation = "ID48520";
+
+			Qfield.Dupmsg = "";
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getGreaterPlus1_int, "id");
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "buildingage", FieldType.NUMERIC);
+			Qfield.FieldDescription = "BUILDING AGE";
+			Qfield.FieldSize =  10;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 10;
+			Qfield.CavDesignation = "BUILDING_AGE20720";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"dateofconstruction"}, new int[] {0}, "property", "codproperty"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return GenFunctions.Year(DateTime.Today)-GenFunctions.Year(((DateTime)args[0]));
+			});
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "dateofconstruction", FieldType.DATE);
+			Qfield.FieldDescription = "DATE OF CONSTRUCTION";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "DATE_OF_CONSTRUCTION18871";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "groundsize", FieldType.NUMERIC);
+			Qfield.FieldDescription = "GROUND SIZE";
+			Qfield.FieldSize =  6;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 6;
+			Qfield.CavDesignation = "GROUND_SIZE31027";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "floornumber", FieldType.NUMERIC);
+			Qfield.FieldDescription = "FLOOR NUMBER";
+			Qfield.FieldSize =  3;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 3;
+			Qfield.CavDesignation = "FLOOR_NUMBER61665";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "feilddescription", FieldType.TEXT);
+			Qfield.FieldDescription = "FEILDDESCRIPTION";
+			Qfield.FieldSize =  50;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "FEILDDESCRIPTION37400";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "sold", FieldType.NUMERIC);
+			Qfield.FieldDescription = "sold";
+			Qfield.FieldSize =  5;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 5;
+			Qfield.CavDesignation = "SOLD56700";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -210,6 +291,13 @@ namespace CSGenio.business
 
 
 
+			info.InternalOperationFields = new string[] {
+			 "buildingage"
+			};
+
+			info.SequentialDefaultValues = new string[] {
+			 "id"
+			};
 
 
 
@@ -217,6 +305,21 @@ namespace CSGenio.business
 
 			//Write conditions
 			List<ConditionFormula> conditions = new List<ConditionFormula>();
+
+			// [PROPERTY->PRICE]>0
+			{
+			List<ByAreaArguments> argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea= new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"price"},new int[] {0},"property","codproperty"));
+			ConditionFormula writeCondition = new ConditionFormula(argumentsListByArea, 1, delegate(object []args,User user,string module,PersistentSupport sp) {
+				return ((decimal)args[0])>0;
+			});
+			writeCondition.ErrorWarning = "You cant save a property without a price";
+            writeCondition.Type =  ConditionType.ERROR;
+            writeCondition.Validate = true;
+			writeCondition.Field = info.DBFields["price"];
+			conditions.Add(writeCondition);
+			}
 			info.WriteConditions = conditions.Where(c=> c.IsWriteCondition()).ToList();
 			info.CrudConditions = conditions.Where(c=> c.IsCrudCondition()).ToList();
 
@@ -438,6 +541,83 @@ namespace CSGenio.business
 			set { insertNameValueField(FldTopoogy, value); }
 		}
 
+		/// <summary>Field : "ID" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldId { get { return m_fldId; } }
+		private static FieldRef m_fldId = new FieldRef("property", "id");
+
+		/// <summary>Field : "ID" Tipo: "N" Formula:  ""</summary>
+		public decimal ValId
+		{
+			get { return (decimal)returnValueField(FldId); }
+			set { insertNameValueField(FldId, value); }
+		}
+
+		/// <summary>Field : "BUILDING AGE" Tipo: "N" Formula: + "Year([Today]) - Year([PROPERTY->DATEOFCONSTRUCTION])"</summary>
+		public static FieldRef FldBuildingage { get { return m_fldBuildingage; } }
+		private static FieldRef m_fldBuildingage = new FieldRef("property", "buildingage");
+
+		/// <summary>Field : "BUILDING AGE" Tipo: "N" Formula: + "Year([Today]) - Year([PROPERTY->DATEOFCONSTRUCTION])"</summary>
+		public decimal ValBuildingage
+		{
+			get { return (decimal)returnValueField(FldBuildingage); }
+			set { insertNameValueField(FldBuildingage, value); }
+		}
+
+		/// <summary>Field : "DATE OF CONSTRUCTION" Tipo: "D" Formula:  ""</summary>
+		public static FieldRef FldDateofconstruction { get { return m_fldDateofconstruction; } }
+		private static FieldRef m_fldDateofconstruction = new FieldRef("property", "dateofconstruction");
+
+		/// <summary>Field : "DATE OF CONSTRUCTION" Tipo: "D" Formula:  ""</summary>
+		public DateTime ValDateofconstruction
+		{
+			get { return (DateTime)returnValueField(FldDateofconstruction); }
+			set { insertNameValueField(FldDateofconstruction, value); }
+		}
+
+		/// <summary>Field : "GROUND SIZE" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldGroundsize { get { return m_fldGroundsize; } }
+		private static FieldRef m_fldGroundsize = new FieldRef("property", "groundsize");
+
+		/// <summary>Field : "GROUND SIZE" Tipo: "N" Formula:  ""</summary>
+		public decimal ValGroundsize
+		{
+			get { return (decimal)returnValueField(FldGroundsize); }
+			set { insertNameValueField(FldGroundsize, value); }
+		}
+
+		/// <summary>Field : "FLOOR NUMBER" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldFloornumber { get { return m_fldFloornumber; } }
+		private static FieldRef m_fldFloornumber = new FieldRef("property", "floornumber");
+
+		/// <summary>Field : "FLOOR NUMBER" Tipo: "N" Formula:  ""</summary>
+		public decimal ValFloornumber
+		{
+			get { return (decimal)returnValueField(FldFloornumber); }
+			set { insertNameValueField(FldFloornumber, value); }
+		}
+
+		/// <summary>Field : "FEILDDESCRIPTION" Tipo: "C" Formula:  ""</summary>
+		public static FieldRef FldFeilddescription { get { return m_fldFeilddescription; } }
+		private static FieldRef m_fldFeilddescription = new FieldRef("property", "feilddescription");
+
+		/// <summary>Field : "FEILDDESCRIPTION" Tipo: "C" Formula:  ""</summary>
+		public string ValFeilddescription
+		{
+			get { return (string)returnValueField(FldFeilddescription); }
+			set { insertNameValueField(FldFeilddescription, value); }
+		}
+
+		/// <summary>Field : "sold" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldSold { get { return m_fldSold; } }
+		private static FieldRef m_fldSold = new FieldRef("property", "sold");
+
+		/// <summary>Field : "sold" Tipo: "N" Formula:  ""</summary>
+		public decimal ValSold
+		{
+			get { return (decimal)returnValueField(FldSold); }
+			set { insertNameValueField(FldSold, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("property", "zzstate");
@@ -535,7 +715,7 @@ namespace CSGenio.business
 		// USE /[MANUAL TRA TABAUX PROPERTY]/
 
  
-            
+                   
 
 	}
 }

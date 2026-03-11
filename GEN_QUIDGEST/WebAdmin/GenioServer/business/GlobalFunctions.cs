@@ -198,6 +198,13 @@ namespace CSGenio.business
                         {
                             return GetUserProfile();
                         }
+                    case 8:
+                        {
+                            checkFunctionArgs(obj, 1);
+
+                            decimal arg0 = Conversion.string2Numeric(obj[0]);
+                            return age(arg0);
+                        }
                     default:
                         throw new BusinessException(null, "GlobalFunctions.executaFuncao", "Unknown function name: " + name);
                 }
