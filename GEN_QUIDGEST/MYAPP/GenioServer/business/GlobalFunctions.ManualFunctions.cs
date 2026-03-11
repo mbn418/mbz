@@ -39,7 +39,7 @@ namespace CSGenio.business
 		/// </summary>
 		private static void initTodasFuncoes()
 		{
-			todasFuncoes = new Hashtable(9, (float)0.5);
+			todasFuncoes = new Hashtable(8, (float)0.5);
 			todasFuncoes.Add("password_alterar", 0);
 			todasFuncoes.Add("password_verificaAntiga", 1);
 			todasFuncoes.Add("validarAssinatura", 2);
@@ -49,22 +49,10 @@ namespace CSGenio.business
 			todasFuncoes.Add("CriarDocumQweb", 6);
 			todasFuncoes.Add("GetUserProfile", 7);
 			//funcoes Csharp
-			todasFuncoes.Add("age", 8);
 			// Cargas
 		}
 
 		#region Funções
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="birthdate"></param>
-		public decimal age(decimal birthdate)
-		{
-//BEGIN_FUNCTION:13807865-0115-4061-a871-58f7a9eab72e
-
-//END_FUNCTION
-		}
 
 		#endregion
 
@@ -75,7 +63,7 @@ namespace CSGenio.business
 
 		private static readonly List<string> m_allManualFuntionsNames = new List<string>()
 		{
-			"age"
+
 		};
 
 		public static List<string> AllManualFuntionsNames
