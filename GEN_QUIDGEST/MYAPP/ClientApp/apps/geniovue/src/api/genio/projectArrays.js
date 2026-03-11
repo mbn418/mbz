@@ -453,12 +453,6 @@ export class QArrayTypology
 				resourceId: 'MORE38452',
 				fnResources,
 			}),
-			new Option({
-				num: 6,
-				key: ,
-				resourceId: '',
-				fnResources,
-			}),
 		]
 
 	}

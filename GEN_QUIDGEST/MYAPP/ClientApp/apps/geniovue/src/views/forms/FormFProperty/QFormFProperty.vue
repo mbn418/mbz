@@ -899,7 +899,7 @@
 						maxIntegers: 1,
 						maxDecimals: 0,
 						arrayName: 'Typology',
-						columns: 1,
+						columns: 5,
 						controlLimits: [
 						],
 					}, this),

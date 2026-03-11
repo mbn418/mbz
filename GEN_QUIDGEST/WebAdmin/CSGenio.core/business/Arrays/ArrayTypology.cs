@@ -45,10 +45,6 @@ namespace CSGenio.business
 		/// More
 		/// </summary>
 		public const decimal E_5_5 = 5M;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const decimal E__6 = M;
 
 		/// <summary>
 		/// Prevents a default instance of the <see cref="ArrayTypology"/> class from being created.
@@ -68,7 +64,6 @@ namespace CSGenio.business
 				{ E_3_3, new ArrayElement() { ResourceId = "_2_BREDROOMS10489", HelpId = "", Group = "" } },
 				{ E_4_4, new ArrayElement() { ResourceId = "_3_BEDROOMS27305", HelpId = "", Group = "" } },
 				{ E_5_5, new ArrayElement() { ResourceId = "MORE38452", HelpId = "", Group = "" } },
-				{ E__6, new ArrayElement() { ResourceId = "", HelpId = "", Group = "" } },
 			};
 		}
 
